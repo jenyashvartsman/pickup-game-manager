@@ -6,7 +6,7 @@
 Current: **EXECUTE**
 
 ## Current Task
-Task 001 — Nx Monorepo Init
+Task 002 — Docker + PostgreSQL Local Setup
 
 ## Factory Phase (execution)
 `INIT` → `SCAFFOLD` → `CORE` → `FEATURES` → `POLISH`
@@ -16,12 +16,12 @@ Task 001 — Nx Monorepo Init
 | Task | Title | Date |
 |------|-------|------|
 | FACTORY-INIT | Project scaffold created | 2026-11-01 |
+| 001 | Nx Monorepo Init | 2026-11-01 |
 
 ## Pending Tasks
 
 | Task | Title | Phase |
 |------|-------|-------|
-| 001 | Nx Monorepo Init | SCAFFOLD |
 | 002 | Docker + PostgreSQL Local Setup | SCAFFOLD |
 | 003 | Database Schema Migration | SCAFFOLD |
 | 004 | Database Seed Fixtures | SCAFFOLD |
@@ -43,4 +43,4 @@ Task 001 — Nx Monorepo Init
 _None_
 
 ## Last Note
-17 tasks generated. Ready to execute — start with Task 001.
+Task 001 complete — Nx monorepo initialised with Angular 18 (web), NestJS 10 (api), shared-types lib. All tests green, builds pass, lint clean.
