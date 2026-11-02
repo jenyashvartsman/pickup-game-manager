@@ -33,4 +33,7 @@ Create the `docker-compose.yml` at the project root to run a local PostgreSQL in
 Task 001
 
 ## Notes
-_Fill in after execution._
+- Installed `@nestjs/typeorm@10`, `typeorm@0.3.20`, `pg`, `dotenv` (typeorm@1.x pinned to 0.3.x to avoid ts-node peer conflict with Nx 19).
+- `dotenv/config` loaded as first import in `main.ts` so env vars are available before NestJS bootstraps.
+- `data-source.ts` uses same env vars as `AppModule` — single source of truth for DB config.
+- `docker compose up -d` starts PostgreSQL on port 5432; verified container running.

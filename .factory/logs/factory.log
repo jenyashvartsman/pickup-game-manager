@@ -6,3 +6,4 @@
 [2026-11-01] FACTORY-DISCOVERY | STATUS: done | User: Single user (no login) | Data: Single record per session | Interaction: CRUD-only | Persistence: Cloud-hosted PostgreSQL (persistent)
 [2026-11-01] FACTORY-TASKS | STATUS: done | Generated 17 tasks — ready to execute
 [2026-11-01] TASK-001 | STATUS: done | Nx monorepo initialised — Angular 18 (web), NestJS 10 (api), shared-types lib; all tests green, builds pass, lint clean
+[2026-11-01] TASK-002 | STATUS: done | Docker Compose + PostgreSQL configured; TypeORM DataSource and AppModule.forRoot wired; tests green, build passes, lint clean

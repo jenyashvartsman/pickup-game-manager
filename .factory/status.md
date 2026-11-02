@@ -6,7 +6,7 @@
 Current: **EXECUTE**
 
 ## Current Task
-Task 002 — Docker + PostgreSQL Local Setup
+Task 003 — Database Schema Migration
 
 ## Factory Phase (execution)
 `INIT` → `SCAFFOLD` → `CORE` → `FEATURES` → `POLISH`
@@ -17,12 +17,12 @@ Task 002 — Docker + PostgreSQL Local Setup
 |------|-------|------|
 | FACTORY-INIT | Project scaffold created | 2026-11-01 |
 | 001 | Nx Monorepo Init | 2026-11-01 |
+| 002 | Docker + PostgreSQL Local Setup | 2026-11-01 |
 
 ## Pending Tasks
 
 | Task | Title | Phase |
 |------|-------|-------|
-| 002 | Docker + PostgreSQL Local Setup | SCAFFOLD |
 | 003 | Database Schema Migration | SCAFFOLD |
 | 004 | Database Seed Fixtures | SCAFFOLD |
 | 005 | Players API (CRUD) | CORE |
@@ -43,4 +43,4 @@ Task 002 — Docker + PostgreSQL Local Setup
 _None_
 
 ## Last Note
-Task 001 complete — Nx monorepo initialised with Angular 18 (web), NestJS 10 (api), shared-types lib. All tests green, builds pass, lint clean.
+Task 002 complete — docker-compose.yml created (postgres:16-alpine on port 5432), .env/.env.example added, TypeORM DataSource configured, AppModule wired with TypeOrmModule.forRoot. Tests green, build passes, lint clean.
