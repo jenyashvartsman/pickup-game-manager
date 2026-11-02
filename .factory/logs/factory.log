@@ -1,0 +1,7 @@
+# Factory Log — pickup-game-manager
+# Format: [YYYY-MM-DD] TASK-NNN | STATUS: done/skipped/blocked | <summary>
+# This file is append-only. Do not edit existing entries.
+
+[2026-11-01] FACTORY-INIT | STATUS: done | Project scaffold created — docs, tasks, commands stub, log, status
+[2026-11-01] FACTORY-DISCOVERY | STATUS: done | User: Single user (no login) | Data: Single record per session | Interaction: CRUD-only | Persistence: Cloud-hosted PostgreSQL (persistent)
+[2026-11-01] FACTORY-TASKS | STATUS: done | Generated 17 tasks — ready to execute
