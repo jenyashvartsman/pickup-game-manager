@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(docker compose:*)",
+      "Bash(docker context list:*)",
+      "Bash(docker context use:*)",
+      "Bash(pg_isready:*)"
+    ]
+  }
+}

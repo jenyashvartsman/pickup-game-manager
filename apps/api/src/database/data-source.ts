@@ -1,5 +1,14 @@
 import 'dotenv/config';
+import { register } from 'tsconfig-paths';
+import { resolve } from 'path';
 import { DataSource } from 'typeorm';
+
+// Register path aliases so the TypeORM CLI can resolve @pickup-game-manager/*
+// imports in entity files when running outside the Nx compilation context.
+register({
+  baseUrl: resolve(__dirname, '../../../..'),
+  paths: { '@pickup-game-manager/shared-types': ['libs/shared-types/src/index.ts'] },
+});
 
 export const AppDataSource = new DataSource({
   type: 'postgres',
