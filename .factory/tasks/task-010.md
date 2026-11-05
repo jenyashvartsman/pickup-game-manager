@@ -38,4 +38,4 @@ Build the Players feature: a searchable/paginated players list page and an add/e
 Task 009, Task 005
 
 ## Notes
-_Fill in after execution._
+Completed 2026-11-05. All files created as scoped. PlayersService uses `signal<Player[]>([])` and `signal<boolean>(false)`; mutations tap() to update the signal in-place (no reload). PlayerCardComponent uses `input.required<Player>()` with a `computed()` initials getter. PlayersListPageComponent drives search with a `searchQuery` signal and a `filteredPlayers` computed; uses `(input)` event binding (no FormsModule needed). PlayerFormPageComponent uses ReactiveFormsModule `fb.nonNullable.group`; edit mode detected via route `snapshot.paramMap.get('id')`. players.routes.ts uses `loadComponent` lazy loading; app.routes.ts switched from `loadComponent` to `loadChildren`. 54 tests green, build clean (lazy chunks visible in output), lint clean.

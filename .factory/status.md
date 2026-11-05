@@ -6,7 +6,7 @@
 Current: **EXECUTE**
 
 ## Current Task
-Task 010 — Players Feature: List & CRUD Pages
+Task 011 — Games Calendar Page
 
 ## Factory Phase (execution)
 `INIT` → `SCAFFOLD` → `CORE` → `FEATURES` → `POLISH`
@@ -25,12 +25,12 @@ Task 010 — Players Feature: List & CRUD Pages
 | 007 | Game Result & Player Stats API | 2026-11-05 |
 | 008 | Dashboard Stats API | 2026-11-05 |
 | 009 | Angular App Shell & Routing | 2026-11-05 |
+| 010 | Players Feature: List & CRUD Pages | 2026-11-05 |
 
 ## Pending Tasks
 
 | Task | Title | Phase |
 |------|-------|-------|
-| 010 | Players Feature: List & CRUD Pages | FEATURES |
 | 011 | Games Calendar Page | FEATURES |
 | 012 | Game Dashboard Page | FEATURES |
 | 013 | Player Dashboard Page | FEATURES |
@@ -43,4 +43,4 @@ Task 010 — Players Feature: List & CRUD Pages
 _None_
 
 ## Last Note
-Task 009 complete. Angular App Shell & Routing — LayoutComponent (sticky header + main content area with router-outlet), HeaderComponent (nav links to Dashboard/Calendar/Players, theme toggle button), ThemeService (dark/light signal, localStorage persistence, CSS class on <html>). SCSS design tokens: _variables.scss (spacing, breakpoints, typography), _themes.scss (CSS custom properties for dark/light), _typography.scss, main.scss global entry point. app.routes.ts with lazy loadComponent for 3 feature stub pages. provideHttpClient in app.config.ts. environments/ with apiUrl. 17 tests green, build clean (no warnings), lint clean.
+Task 010 complete. Players Feature: List & CRUD Pages — player.model.ts (Player, CreatePlayerRequest, UpdatePlayerRequest interfaces), PlayersService (signals: players, isLoading; loadPlayers/getPlayer/createPlayer/updatePlayer/deletePlayer), PlayerCardComponent (initials avatar, position badge, edit/delete outputs), PlayersListPageComponent (search signal + filteredPlayers computed, grid layout), PlayerFormPageComponent (ReactiveFormsModule, add/edit mode via route param), players.routes.ts (lazy loadComponent for list/new/:id/edit), app.routes.ts updated to loadChildren. 54 tests green, build clean, lint clean.

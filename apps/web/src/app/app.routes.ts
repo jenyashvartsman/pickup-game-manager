@@ -18,10 +18,10 @@ export const appRoutes: Routes = [
   },
   {
     path: 'players',
-    loadComponent: () =>
-      import(
-        './features/players/pages/players-list-page/players-list-page.component'
-      ).then((m) => m.PlayersListPageComponent),
+    loadChildren: () =>
+      import('./features/players/players.routes').then(
+        (m) => m.playersRoutes
+      ),
   },
   {
     path: '**',

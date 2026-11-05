@@ -1,0 +1,29 @@
+<div class="player-card">
+  <div class="player-card__avatar">
+    <span class="player-card__initials">{{ initials() }}</span>
+  </div>
+
+  <div class="player-card__body">
+    <h3 class="player-card__name">{{ player().name }}</h3>
+    <span class="player-card__position">{{ player().position }}</span>
+  </div>
+
+  <div class="player-card__actions">
+    <button
+      class="player-card__btn player-card__btn--edit"
+      (click)="editRequested.emit(player())"
+      [attr.aria-label]="'Edit ' + player().name"
+      type="button"
+    >
+      Edit
+    </button>
+    <button
+      class="player-card__btn player-card__btn--delete"
+      (click)="deleteRequested.emit(player())"
+      [attr.aria-label]="'Delete ' + player().name"
+      type="button"
+    >
+      Delete
+    </button>
+  </div>
+</div>

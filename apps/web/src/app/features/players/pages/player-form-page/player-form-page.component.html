@@ -1,0 +1,69 @@
+<div class="player-form-page">
+  <div class="player-form-page__header">
+    <h1 class="player-form-page__title">
+      {{ isEditMode() ? 'Edit Player' : 'Add Player' }}
+    </h1>
+  </div>
+
+  <form
+    class="player-form-page__form"
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+    novalidate
+  >
+    <div class="player-form-page__field">
+      <label class="player-form-page__label" for="name">Name</label>
+      <input
+        id="name"
+        class="player-form-page__input"
+        [class.player-form-page__input--error]="
+          form.controls.name.invalid && form.controls.name.touched
+        "
+        type="text"
+        formControlName="name"
+        placeholder="Player name"
+        autocomplete="off"
+      />
+      @if (form.controls.name.invalid && form.controls.name.touched) {
+        <span class="player-form-page__error">
+          Name is required (minimum 2 characters).
+        </span>
+      }
+    </div>
+
+    <div class="player-form-page__field">
+      <label class="player-form-page__label" for="position">Position</label>
+      <input
+        id="position"
+        class="player-form-page__input"
+        [class.player-form-page__input--error]="
+          form.controls.position.invalid && form.controls.position.touched
+        "
+        type="text"
+        formControlName="position"
+        placeholder="e.g. Forward, Midfielder, Defender, Goalkeeper"
+        autocomplete="off"
+      />
+      @if (form.controls.position.invalid && form.controls.position.touched) {
+        <span class="player-form-page__error">Position is required.</span>
+      }
+    </div>
+
+    <div class="player-form-page__actions">
+      <button
+        type="button"
+        class="player-form-page__btn player-form-page__btn--cancel"
+        (click)="onCancel()"
+      >
+        Cancel
+      </button>
+      <button
+        type="submit"
+        class="player-form-page__btn player-form-page__btn--submit"
+        [disabled]="form.invalid || isSubmitting()"
+      >
+        {{ isSubmitting() ? 'Saving…' : (isEditMode() ? 'Save Changes' : 'Add Player') }}
+      </button>
+    </div>
+  </form>
+</div>

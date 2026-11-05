@@ -1,0 +1,33 @@
+<div class="players-list-page">
+  <div class="players-list-page__header">
+    <h1 class="players-list-page__title">Players</h1>
+    <a class="players-list-page__add-btn" routerLink="/players/new">Add Player</a>
+  </div>
+
+  <div class="players-list-page__toolbar">
+    <input
+      class="players-list-page__search"
+      type="search"
+      placeholder="Search by name or position…"
+      [value]="searchQuery()"
+      (input)="onSearchInput($event)"
+      aria-label="Search players"
+    />
+  </div>
+
+  @if (playersService.isLoading()) {
+    <p class="players-list-page__state">Loading players…</p>
+  } @else if (filteredPlayers().length === 0) {
+    <p class="players-list-page__state">No players found.</p>
+  } @else {
+    <div class="players-list-page__grid">
+      @for (player of filteredPlayers(); track player.id) {
+        <app-player-card
+          [player]="player"
+          (editRequested)="onEdit($event)"
+          (deleteRequested)="onDelete($event)"
+        />
+      }
+    </div>
+  }
+</div>
