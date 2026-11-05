@@ -6,7 +6,7 @@
 Current: **EXECUTE**
 
 ## Current Task
-Task 008 — Dashboard Stats API
+Task 009 — Angular App Shell & Routing
 
 ## Factory Phase (execution)
 `INIT` → `SCAFFOLD` → `CORE` → `FEATURES` → `POLISH`
@@ -23,12 +23,12 @@ Task 008 — Dashboard Stats API
 | 005 | Players API (CRUD) | 2026-11-05 |
 | 006 | Games API (CRUD + Roster) | 2026-11-05 |
 | 007 | Game Result & Player Stats API | 2026-11-05 |
+| 008 | Dashboard Stats API | 2026-11-05 |
 
 ## Pending Tasks
 
 | Task | Title | Phase |
 |------|-------|-------|
-| 008 | Dashboard Stats API | CORE |
 | 009 | Angular App Shell & Routing | CORE |
 | 010 | Players Feature: List & CRUD Pages | FEATURES |
 | 011 | Games Calendar Page | FEATURES |
@@ -43,4 +43,4 @@ Task 008 — Dashboard Stats API
 _None_
 
 ## Last Note
-Task 007 complete. Game Result & Player Stats API — GameResultsModule/Controller/Service (POST/PATCH/GET /games/:id/result), PlayerStatsModule/Controller/Service (PUT/GET /games/:id/stats). Cancelled-game guard on createResult. Roster-only guard on upsertStats. AuditLog on all mutations. GameResultDto/PlayerStatDto/CreateGameResultRequest/UpdateGameResultRequest/UpsertPlayerStatRequest exported from shared-types. ParseArrayPipe for array body on PUT /stats. 15 new tests (46 total), build passes, lint clean.
+Task 008 complete. Dashboard Stats API — DashboardModule/Controller/Service with GET /dashboard. upcomingGames (scheduled within next 7 days, asc), recentResults (last 5 completed with scores, desc), topPlayers (top 5 by goals using GROUP BY raw query, with assists). No N+1 queries. UpcomingGameDto/RecentResultDto/TopPlayerDto/DashboardSummaryDto exported from shared-types. 9 new tests (55 total), build passes, lint clean.

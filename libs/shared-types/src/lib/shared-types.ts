@@ -83,3 +83,32 @@ export interface UpsertPlayerStatRequest {
   redCards?: number;
   minutesPlayed?: number;
 }
+
+export interface UpcomingGameDto {
+  id: string;
+  scheduledAt: Date;
+  location: string | null;
+  playerCount: number;
+}
+
+export interface RecentResultDto {
+  id: string;
+  scheduledAt: Date;
+  location: string | null;
+  scoreTeamA: number;
+  scoreTeamB: number;
+}
+
+export interface TopPlayerDto {
+  id: string;
+  name: string;
+  position: string;
+  totalGoals: number;
+  totalAssists: number;
+}
+
+export interface DashboardSummaryDto {
+  upcomingGames: UpcomingGameDto[];
+  recentResults: RecentResultDto[];
+  topPlayers: TopPlayerDto[];
+}

@@ -7,6 +7,7 @@ import { PlayersModule } from '../modules/players/players.module';
 import { GamesModule } from '../modules/games/games.module';
 import { GameResultsModule } from '../modules/game-results/game-results.module';
 import { PlayerStatsModule } from '../modules/player-stats/player-stats.module';
+import { DashboardModule } from '../modules/dashboard/dashboard.module';
 import { Player } from '../modules/players/entities/player.entity';
 import { Game } from '../modules/games/entities/game.entity';
 import { GameResult } from '../modules/game-results/entities/game-result.entity';
@@ -39,6 +40,7 @@ import { AuditLog } from '../modules/audit-logs/entities/audit-log.entity';
     GamesModule,
     GameResultsModule,
     PlayerStatsModule,
+    DashboardModule,
   ],
   controllers: [AppController],
   providers: [AppService],
