@@ -8,7 +8,8 @@
       "Bash(npx nx g:*)",
       "Bash(npx nx test:*)",
       "Bash(npx nx build:*)",
-      "Bash(npx nx lint:*)"
+      "Bash(npx nx lint:*)",
+      "Bash(python3:*)"
     ],
     "additionalDirectories": [
       "C:\\Users\\jenya\\Projects\\full-stack\\pickup-game-manager\\.factory",

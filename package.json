@@ -13,7 +13,13 @@
     "test:api": "nx test api --watch=false",
     "lint": "nx run-many -t lint --all",
     "lint:web": "nx lint web",
-    "lint:api": "nx lint api"
+    "lint:api": "nx lint api",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
+    "docker:logs": "docker compose logs postgres",
+    "migration:run": "npx typeorm migration:run -d apps/api/src/database/data-source.ts",
+    "migration:revert": "npx typeorm migration:revert -d apps/api/src/database/data-source.ts",
+    "migration:generate": "npx typeorm migration:generate -d apps/api/src/database/data-source.ts"
   },
   "private": true,
   "dependencies": {
@@ -25,11 +31,16 @@
     "@angular/platform-browser-dynamic": "~22.2.0",
     "@angular/router": "~22.2.0",
     "@nestjs/common": "^11.0.0",
+    "@nestjs/config": "^12.1.0",
     "@nestjs/core": "^11.0.0",
     "@nestjs/platform-express": "^11.0.0",
+    "@nestjs/typeorm": "^12.0.2",
     "axios": "^1.6.0",
+    "dotenv": "^18.0.9",
+    "pg": "^8.23.1",
     "reflect-metadata": "^0.2.0",
-    "rxjs": "~7.8.0"
+    "rxjs": "~7.8.0",
+    "typeorm": "^1.1.2"
   },
   "devDependencies": {
     "@angular-devkit/core": "~22.2.0",
@@ -56,6 +67,7 @@
     "@swc/helpers": "0.5.18",
     "@types/jest": "~30.0.0",
     "@types/node": "^24.0.0",
+    "@types/pg": "^8.23.1",
     "@typescript-eslint/utils": "^8.58.0",
     "angular-eslint": "^22.5.0",
     "eslint": "^9.8.0",

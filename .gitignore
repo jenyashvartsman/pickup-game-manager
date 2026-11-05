@@ -42,3 +42,6 @@ Thumbs.db
 .nx/migrate-runs
 
 .angular
+
+# environment
+.env
