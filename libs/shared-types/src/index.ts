@@ -1,12 +1,12 @@
 // Domain types for pickup-game-manager
 // Shared between Angular frontend and NestJS backend
 
-export { GameStatus, AuditAction } from './lib/enums';
-
 export type PlayerPosition = 'goalkeeper' | 'defender' | 'midfielder' | 'forward';
 
+export type GameStatus = 'scheduled' | 'completed' | 'cancelled';
+
 export interface Player {
-  id: string;
+  id: number;
   name: string;
   position: PlayerPosition;
   createdAt: string;
@@ -14,27 +14,28 @@ export interface Player {
 }
 
 export interface Game {
-  id: string;
-  scheduledAt: string;
-  location: string | null;
+  id: number;
+  date: string;
+  time: string;
+  location: string;
   status: GameStatus;
   createdAt: string;
   updatedAt: string;
 }
 
 export interface GameResult {
-  id: string;
-  gameId: string;
-  scoreTeamA: number;
-  scoreTeamB: number;
+  id: number;
+  gameId: number;
+  homeScore: number;
+  awayScore: number;
   createdAt: string;
   updatedAt: string;
 }
 
 export interface PlayerStat {
-  id: string;
-  gameId: string;
-  playerId: string;
+  id: number;
+  gameId: number;
+  playerId: number;
   goals: number;
   assists: number;
   yellowCards: number;
@@ -45,6 +46,6 @@ export interface PlayerStat {
 }
 
 export interface GameRoster {
-  gameId: string;
-  playerId: string;
+  gameId: number;
+  playerId: number;
 }
