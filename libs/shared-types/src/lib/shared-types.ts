@@ -42,3 +42,44 @@ export interface UpdateGameRequest {
 export interface AddToRosterRequest {
   playerId: string;
 }
+
+export interface GameResultDto {
+  id: string;
+  gameId: string;
+  scoreTeamA: number;
+  scoreTeamB: number;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export interface CreateGameResultRequest {
+  scoreTeamA: number;
+  scoreTeamB: number;
+}
+
+export interface UpdateGameResultRequest {
+  scoreTeamA?: number;
+  scoreTeamB?: number;
+}
+
+export interface PlayerStatDto {
+  id: string;
+  gameId: string;
+  playerId: string;
+  goals: number;
+  assists: number;
+  yellowCards: number;
+  redCards: number;
+  minutesPlayed: number;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export interface UpsertPlayerStatRequest {
+  playerId: string;
+  goals?: number;
+  assists?: number;
+  yellowCards?: number;
+  redCards?: number;
+  minutesPlayed?: number;
+}
