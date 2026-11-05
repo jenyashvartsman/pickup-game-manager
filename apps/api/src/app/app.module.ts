@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PlayersModule } from '../modules/players/players.module';
+import { GamesModule } from '../modules/games/games.module';
 import { Player } from '../modules/players/entities/player.entity';
 import { Game } from '../modules/games/entities/game.entity';
 import { GameResult } from '../modules/game-results/entities/game-result.entity';
@@ -33,6 +34,7 @@ import { AuditLog } from '../modules/audit-logs/entities/audit-log.entity';
       }),
     }),
     PlayersModule,
+    GamesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

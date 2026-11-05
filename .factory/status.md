@@ -6,7 +6,7 @@
 Current: **EXECUTE**
 
 ## Current Task
-Task 006 — Games API (CRUD + Roster)
+Task 007 — Game Result & Player Stats API
 
 ## Factory Phase (execution)
 `INIT` → `SCAFFOLD` → `CORE` → `FEATURES` → `POLISH`
@@ -21,12 +21,12 @@ Task 006 — Games API (CRUD + Roster)
 | 003 | Database Schema Migration | 2026-11-05 |
 | 004 | Database Seed Fixtures | 2026-11-05 |
 | 005 | Players API (CRUD) | 2026-11-05 |
+| 006 | Games API (CRUD + Roster) | 2026-11-05 |
 
 ## Pending Tasks
 
 | Task | Title | Phase |
 |------|-------|-------|
-| 006 | Games API (CRUD + Roster) | CORE |
 | 007 | Game Result & Player Stats API | CORE |
 | 008 | Dashboard Stats API | CORE |
 | 009 | Angular App Shell & Routing | CORE |
@@ -43,4 +43,4 @@ Task 006 — Games API (CRUD + Roster)
 _None_
 
 ## Last Note
-Task 005 complete. Players API (CRUD) — PlayersModule, PlayersController, PlayersService, DTOs, AuditLogService, HttpExceptionFilter. ValidationPipe + HttpExceptionFilter registered globally in main.ts. PlayerDto/CreatePlayerRequest/UpdatePlayerRequest exported from shared-types. `@nestjs/typeorm` ESM incompatibility with Jest resolved via moduleNameMapper CJS mock. 10 tests green, build passes, lint clean.
+Task 006 complete. Games API (CRUD + Roster) — GamesModule, GamesController, GamesService, CreateGameDto/UpdateGameDto/AddPlayerToRosterDto. Roster sub-resource (POST/DELETE /games/:id/roster). Guard prevents adding player to completed/cancelled game. GameDto/CreateGameRequest/UpdateGameRequest/AddToRosterRequest exported from shared-types. TypeORM v1 object-style relations (`{ players: true }`). 21 new tests (31 total), build passes, lint clean.
