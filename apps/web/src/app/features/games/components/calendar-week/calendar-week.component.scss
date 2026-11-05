@@ -1,0 +1,85 @@
+@use '../../../../../styles/variables' as v;
+
+.calendar-week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: v.$spacing-sm;
+
+  @media (max-width: v.$breakpoint-lg) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: v.$breakpoint-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: v.$breakpoint-sm) {
+    grid-template-columns: 1fr;
+  }
+
+  &__day {
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: v.$border-radius-md;
+    overflow: hidden;
+    min-height: 160px;
+
+    &--today {
+      border-color: var(--color-primary);
+    }
+  }
+
+  &__day-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: v.$spacing-sm v.$spacing-md;
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-bg-card);
+  }
+
+  &__day-label {
+    font-size: v.$font-size-sm;
+    font-weight: v.$font-weight-semibold;
+    color: var(--color-text-primary);
+  }
+
+  &__today-badge {
+    font-size: v.$font-size-xs;
+    font-weight: v.$font-weight-semibold;
+    color: var(--color-primary);
+    background: rgba(0, 212, 170, 0.1);
+    padding: 2px v.$spacing-sm;
+    border-radius: v.$border-radius-sm;
+  }
+
+  &__day-body {
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-xs;
+    padding: v.$spacing-sm;
+    min-height: 120px;
+    cursor: pointer;
+
+    &:hover {
+      background: var(--color-nav-hover-bg);
+    }
+
+    &:focus {
+      outline: 2px solid var(--color-primary);
+      outline-offset: -2px;
+    }
+  }
+
+  &__empty {
+    font-size: v.$font-size-xs;
+    color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: v.$spacing-md;
+    border: 1px dashed var(--color-border);
+    border-radius: v.$border-radius-sm;
+  }
+}

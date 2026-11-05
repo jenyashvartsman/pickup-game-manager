@@ -1,0 +1,86 @@
+@use '../../../../../styles/variables' as v;
+
+.game-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: v.$border-radius-md;
+  padding: v.$spacing-sm v.$spacing-md;
+  cursor: pointer;
+  transition: border-color v.$transition-fast, box-shadow v.$transition-fast;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(0, 212, 170, 0.15);
+  }
+
+  &--completed {
+    border-left: 3px solid var(--color-success);
+  }
+
+  &--cancelled {
+    border-left: 3px solid var(--color-danger);
+    opacity: 0.6;
+  }
+
+  &--scheduled {
+    border-left: 3px solid var(--color-primary);
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: v.$spacing-xs;
+  }
+
+  &__time {
+    font-size: v.$font-size-sm;
+    font-weight: v.$font-weight-semibold;
+    color: var(--color-text-primary);
+  }
+
+  &__badge {
+    font-size: v.$font-size-xs;
+    font-weight: v.$font-weight-semibold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 2px v.$spacing-sm;
+    border-radius: v.$border-radius-sm;
+
+    &--scheduled {
+      background: rgba(0, 212, 170, 0.15);
+      color: var(--color-primary);
+    }
+
+    &--completed {
+      background: rgba(63, 185, 80, 0.15);
+      color: var(--color-success);
+    }
+
+    &--cancelled {
+      background: rgba(248, 81, 73, 0.15);
+      color: var(--color-danger);
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-xs;
+  }
+
+  &__date {
+    font-size: v.$font-size-sm;
+    color: var(--color-text-secondary);
+  }
+
+  &__location {
+    font-size: v.$font-size-xs;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

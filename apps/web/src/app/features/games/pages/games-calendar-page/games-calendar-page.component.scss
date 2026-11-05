@@ -1,0 +1,80 @@
+@use '../../../../../styles/variables' as v;
+
+.games-calendar-page {
+  padding: v.$spacing-xl;
+
+  @media (max-width: v.$breakpoint-md) {
+    padding: v.$spacing-md;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: v.$spacing-md;
+    margin-bottom: v.$spacing-xl;
+  }
+
+  &__title {
+    font-size: v.$font-size-3xl;
+    font-weight: v.$font-weight-bold;
+    color: var(--color-text-primary);
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: v.$spacing-sm;
+  }
+
+  &__nav-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: v.$font-size-xl;
+    border: 1px solid var(--color-border);
+    border-radius: v.$border-radius-md;
+    color: var(--color-text-primary);
+    background: var(--color-bg-card);
+    transition: border-color v.$transition-fast, color v.$transition-fast;
+
+    &:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+  }
+
+  &__week-range {
+    font-size: v.$font-size-base;
+    font-weight: v.$font-weight-semibold;
+    color: var(--color-text-primary);
+    min-width: 200px;
+    text-align: center;
+  }
+
+  &__today-btn {
+    padding: v.$spacing-xs v.$spacing-md;
+    border: 1px solid var(--color-primary);
+    border-radius: v.$border-radius-md;
+    color: var(--color-primary);
+    background: transparent;
+    font-size: v.$font-size-sm;
+    font-weight: v.$font-weight-semibold;
+    transition: background v.$transition-fast, color v.$transition-fast;
+
+    &:hover {
+      background: var(--color-primary);
+      color: var(--color-bg);
+    }
+  }
+
+  &__loading {
+    padding: v.$spacing-3xl;
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: v.$font-size-lg;
+  }
+}

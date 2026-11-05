@@ -6,7 +6,7 @@
 Current: **EXECUTE**
 
 ## Current Task
-Task 011 — Games Calendar Page
+Task 012 — Game Dashboard Page
 
 ## Factory Phase (execution)
 `INIT` → `SCAFFOLD` → `CORE` → `FEATURES` → `POLISH`
@@ -26,12 +26,12 @@ Task 011 — Games Calendar Page
 | 008 | Dashboard Stats API | 2026-11-05 |
 | 009 | Angular App Shell & Routing | 2026-11-05 |
 | 010 | Players Feature: List & CRUD Pages | 2026-11-05 |
+| 011 | Games Calendar Page | 2026-11-05 |
 
 ## Pending Tasks
 
 | Task | Title | Phase |
 |------|-------|-------|
-| 011 | Games Calendar Page | FEATURES |
 | 012 | Game Dashboard Page | FEATURES |
 | 013 | Player Dashboard Page | FEATURES |
 | 014 | Main Dashboard Page | FEATURES |
@@ -43,4 +43,4 @@ Task 011 — Games Calendar Page
 _None_
 
 ## Last Note
-Task 010 complete. Players Feature: List & CRUD Pages — player.model.ts (Player, CreatePlayerRequest, UpdatePlayerRequest interfaces), PlayersService (signals: players, isLoading; loadPlayers/getPlayer/createPlayer/updatePlayer/deletePlayer), PlayerCardComponent (initials avatar, position badge, edit/delete outputs), PlayersListPageComponent (search signal + filteredPlayers computed, grid layout), PlayerFormPageComponent (ReactiveFormsModule, add/edit mode via route param), players.routes.ts (lazy loadComponent for list/new/:id/edit), app.routes.ts updated to loadChildren. 54 tests green, build clean, lint clean.
+Task 011 complete. Games Calendar Page — game.model.ts (Game, CreateGameRequest, UpdateGameRequest), GamesService (signals: games, isLoading, selectedWeek; computed weekRange; loadGamesForWeek/goToPreviousWeek/goToNextWeek/goToCurrentWeek/createGame/updateGame/deleteGame), GameCardComponent (date/time/location/status badge, gameSelected output), CalendarWeekComponent (7-day grid, computed days with per-day game filtering, daySlotClicked/gameSelected outputs), GamesCalendarPageComponent (week nav, loading state), GameFormPageComponent (ReactiveFormsModule, date pre-fill from query param, POST on submit), games.routes.ts (lazy loadComponent for calendar/new), app.routes.ts updated to loadChildren for games. 73 tests green, build clean, lint clean.

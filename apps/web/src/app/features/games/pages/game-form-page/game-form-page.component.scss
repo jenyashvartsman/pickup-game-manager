@@ -1,0 +1,120 @@
+@use '../../../../../styles/variables' as v;
+
+.game-form-page {
+  padding: v.$spacing-xl;
+  max-width: 560px;
+
+  @media (max-width: v.$breakpoint-md) {
+    padding: v.$spacing-md;
+  }
+
+  &__header {
+    margin-bottom: v.$spacing-xl;
+  }
+
+  &__title {
+    font-size: v.$font-size-3xl;
+    font-weight: v.$font-weight-bold;
+    color: var(--color-text-primary);
+  }
+
+  &__card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: v.$border-radius-lg;
+    padding: v.$spacing-xl;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-lg;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-xs;
+  }
+
+  &__label {
+    font-size: v.$font-size-sm;
+    font-weight: v.$font-weight-semibold;
+    color: var(--color-text-primary);
+  }
+
+  &__required {
+    color: var(--color-danger);
+    margin-left: 2px;
+  }
+
+  &__input {
+    padding: v.$spacing-sm v.$spacing-md;
+    border: 1px solid var(--color-border);
+    border-radius: v.$border-radius-md;
+    background: var(--color-bg-elevated);
+    color: var(--color-text-primary);
+    font-size: v.$font-size-base;
+    font-family: v.$font-family-base;
+    transition: border-color v.$transition-fast;
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary);
+    }
+
+    &--error {
+      border-color: var(--color-danger);
+    }
+
+    &[type='datetime-local']::-webkit-calendar-picker-indicator {
+      filter: invert(0.6);
+    }
+  }
+
+  &__error {
+    font-size: v.$font-size-xs;
+    color: var(--color-danger);
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: v.$spacing-md;
+    margin-top: v.$spacing-sm;
+  }
+
+  &__btn {
+    padding: v.$spacing-sm v.$spacing-xl;
+    border-radius: v.$border-radius-md;
+    font-size: v.$font-size-base;
+    font-weight: v.$font-weight-semibold;
+    transition: background v.$transition-fast, opacity v.$transition-fast;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &--primary {
+      background: var(--color-primary);
+      color: var(--color-bg);
+      border: none;
+
+      &:not(:disabled):hover {
+        background: var(--color-primary-hover);
+      }
+    }
+
+    &--secondary {
+      background: transparent;
+      color: var(--color-text-secondary);
+      border: 1px solid var(--color-border);
+
+      &:hover {
+        border-color: var(--color-text-secondary);
+        color: var(--color-text-primary);
+      }
+    }
+  }
+}

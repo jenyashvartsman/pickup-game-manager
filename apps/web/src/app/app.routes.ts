@@ -11,10 +11,8 @@ export const appRoutes: Routes = [
   },
   {
     path: 'games',
-    loadComponent: () =>
-      import(
-        './features/games/pages/games-calendar-page/games-calendar-page.component'
-      ).then((m) => m.GamesCalendarPageComponent),
+    loadChildren: () =>
+      import('./features/games/games.routes').then((m) => m.gamesRoutes),
   },
   {
     path: 'players',

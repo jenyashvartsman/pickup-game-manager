@@ -1,0 +1,46 @@
+<div class="games-calendar-page">
+  <div class="games-calendar-page__header">
+    <h1 class="games-calendar-page__title">Games Calendar</h1>
+
+    <div class="games-calendar-page__nav">
+      <button
+        class="games-calendar-page__nav-btn"
+        type="button"
+        (click)="onPreviousWeek()"
+        aria-label="Previous week"
+      >
+        &#8249;
+      </button>
+
+      <span class="games-calendar-page__week-range">{{ formatWeekRange() }}</span>
+
+      <button
+        class="games-calendar-page__nav-btn"
+        type="button"
+        (click)="onNextWeek()"
+        aria-label="Next week"
+      >
+        &#8250;
+      </button>
+
+      <button
+        class="games-calendar-page__today-btn"
+        type="button"
+        (click)="onToday()"
+      >
+        Today
+      </button>
+    </div>
+  </div>
+
+  @if (gamesService.isLoading()) {
+    <div class="games-calendar-page__loading">Loading games…</div>
+  } @else {
+    <app-calendar-week
+      [weekStart]="gamesService.selectedWeek()"
+      [games]="gamesService.games()"
+      (daySlotClicked)="onDaySlotClicked($event)"
+      (gameSelected)="onGameSelected($event)"
+    />
+  }
+</div>

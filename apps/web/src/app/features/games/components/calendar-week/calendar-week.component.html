@@ -1,0 +1,35 @@
+<div class="calendar-week">
+  @for (day of days(); track day.date.toISOString()) {
+    <div
+      class="calendar-week__day"
+      [class.calendar-week__day--today]="day.isToday"
+    >
+      <div class="calendar-week__day-header">
+        <span class="calendar-week__day-label">{{ day.label }}</span>
+        @if (day.isToday) {
+          <span class="calendar-week__today-badge">Today</span>
+        }
+      </div>
+
+      <div
+        class="calendar-week__day-body"
+        (click)="daySlotClicked.emit(day.date)"
+        (keydown.enter)="daySlotClicked.emit(day.date)"
+        tabindex="0"
+        role="button"
+        aria-label="Add game on {{ day.label }}"
+      >
+        @for (game of day.games; track game.id) {
+          <app-game-card
+            [game]="game"
+            (gameSelected)="gameSelected.emit($event)"
+          />
+        }
+
+        @if (day.games.length === 0) {
+          <span class="calendar-week__empty">+ Add game</span>
+        }
+      </div>
+    </div>
+  }
+</div>

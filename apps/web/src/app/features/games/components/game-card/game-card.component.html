@@ -1,0 +1,23 @@
+<div
+  class="game-card"
+  [class]="'game-card--' + game().status"
+  (click)="gameSelected.emit(game())"
+  (keydown.enter)="gameSelected.emit(game())"
+  tabindex="0"
+  role="button"
+  [attr.aria-label]="'View game on ' + formatDate(game().scheduledAt)"
+>
+  <div class="game-card__header">
+    <span class="game-card__time">{{ formatTime(game().scheduledAt) }}</span>
+    <span class="game-card__badge game-card__badge--{{ game().status }}">
+      {{ game().status }}
+    </span>
+  </div>
+
+  <div class="game-card__body">
+    <span class="game-card__date">{{ formatDate(game().scheduledAt) }}</span>
+    @if (game().location) {
+      <span class="game-card__location">{{ game().location }}</span>
+    }
+  </div>
+</div>

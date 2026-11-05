@@ -1,0 +1,56 @@
+<div class="game-form-page">
+  <div class="game-form-page__header">
+    <h1 class="game-form-page__title">Schedule Game</h1>
+  </div>
+
+  <div class="game-form-page__card">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="game-form-page__form">
+      <div class="game-form-page__field">
+        <label class="game-form-page__label" for="scheduledAt">
+          Date &amp; Time <span class="game-form-page__required">*</span>
+        </label>
+        <input
+          id="scheduledAt"
+          type="datetime-local"
+          class="game-form-page__input"
+          formControlName="scheduledAt"
+          [class.game-form-page__input--error]="
+            form.controls.scheduledAt.invalid && form.controls.scheduledAt.touched
+          "
+        />
+        @if (form.controls.scheduledAt.invalid && form.controls.scheduledAt.touched) {
+          <span class="game-form-page__error">Date and time are required.</span>
+        }
+      </div>
+
+      <div class="game-form-page__field">
+        <label class="game-form-page__label" for="location">Location</label>
+        <input
+          id="location"
+          type="text"
+          class="game-form-page__input"
+          formControlName="location"
+          placeholder="e.g. Central Park"
+          maxlength="150"
+        />
+      </div>
+
+      <div class="game-form-page__actions">
+        <button
+          type="button"
+          class="game-form-page__btn game-form-page__btn--secondary"
+          (click)="onCancel()"
+        >
+          Cancel
+        </button>
+        <button
+          type="submit"
+          class="game-form-page__btn game-form-page__btn--primary"
+          [disabled]="form.invalid || isSubmitting()"
+        >
+          {{ isSubmitting() ? 'Saving…' : 'Schedule Game' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
