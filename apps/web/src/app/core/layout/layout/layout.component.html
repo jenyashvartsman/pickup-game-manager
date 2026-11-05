@@ -1,0 +1,41 @@
+<!-- Mobile top bar (hidden on desktop via CSS) -->
+<div class="layout__topbar">
+  <button
+    class="layout__hamburger"
+    (click)="toggleSidebar()"
+    [attr.aria-label]="isSidebarOpen() ? 'Close navigation' : 'Open navigation'"
+    [attr.aria-expanded]="isSidebarOpen()"
+  >
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      @if (isSidebarOpen()) {
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      } @else {
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      }
+    </svg>
+  </button>
+  <span class="layout__topbar-title">Pickup FC</span>
+</div>
+
+<!-- Overlay (mobile only — closes sidebar on tap outside) -->
+<div
+  class="layout__overlay"
+  [class.layout__overlay--visible]="isSidebarOpen()"
+  (click)="closeSidebar()"
+  aria-hidden="true"
+></div>
+
+<!-- Shell: sidebar + main content -->
+<div class="layout__shell">
+  <app-sidebar
+    [isOpen]="isSidebarOpen()"
+    (closeRequested)="closeSidebar()"
+  ></app-sidebar>
+
+  <main class="layout__main">
+    <router-outlet></router-outlet>
+  </main>
+</div>

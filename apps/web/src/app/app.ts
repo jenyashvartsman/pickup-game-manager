@@ -1,13 +1,9 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { NxWelcome } from './nx-welcome';
+import { LayoutComponent } from './core/layout/layout/layout.component';
 
 @Component({
-  imports: [NxWelcome, RouterModule],
   selector: 'app-root',
-  templateUrl: './app.html',
-  styleUrl: './app.css',
+  imports: [LayoutComponent],
+  template: '<app-layout></app-layout>',
 })
-export class App {
-  protected title = 'web';
-}
+export class App {}

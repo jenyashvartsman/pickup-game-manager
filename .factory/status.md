@@ -6,7 +6,7 @@
 Current: **EXECUTE**
 
 ## Current Task
-Task 009 — Angular App Shell & Routing
+Task 010 — Players Feature: List & CRUD Pages
 
 ## Factory Phase (execution)
 `INIT` → `SCAFFOLD` → `CORE` → `FEATURES` → `POLISH`
@@ -24,12 +24,12 @@ Task 009 — Angular App Shell & Routing
 | 006 | Games API (CRUD + Roster) | 2026-11-05 |
 | 007 | Game Result & Player Stats API | 2026-11-05 |
 | 008 | Dashboard Stats API | 2026-11-05 |
+| 009 | Angular App Shell & Routing | 2026-11-05 |
 
 ## Pending Tasks
 
 | Task | Title | Phase |
 |------|-------|-------|
-| 009 | Angular App Shell & Routing | CORE |
 | 010 | Players Feature: List & CRUD Pages | FEATURES |
 | 011 | Games Calendar Page | FEATURES |
 | 012 | Game Dashboard Page | FEATURES |
@@ -43,4 +43,4 @@ Task 009 — Angular App Shell & Routing
 _None_
 
 ## Last Note
-Task 008 complete. Dashboard Stats API — DashboardModule/Controller/Service with GET /dashboard. upcomingGames (scheduled within next 7 days, asc), recentResults (last 5 completed with scores, desc), topPlayers (top 5 by goals using GROUP BY raw query, with assists). No N+1 queries. UpcomingGameDto/RecentResultDto/TopPlayerDto/DashboardSummaryDto exported from shared-types. 9 new tests (55 total), build passes, lint clean.
+Task 009 complete. Angular App Shell & Routing — LayoutComponent (sticky header + main content area with router-outlet), HeaderComponent (nav links to Dashboard/Calendar/Players, theme toggle button), ThemeService (dark/light signal, localStorage persistence, CSS class on <html>). SCSS design tokens: _variables.scss (spacing, breakpoints, typography), _themes.scss (CSS custom properties for dark/light), _typography.scss, main.scss global entry point. app.routes.ts with lazy loadComponent for 3 feature stub pages. provideHttpClient in app.config.ts. environments/ with apiUrl. 17 tests green, build clean (no warnings), lint clean.

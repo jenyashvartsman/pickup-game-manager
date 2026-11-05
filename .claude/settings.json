@@ -22,7 +22,9 @@
       "Bash(TS_NODE_PROJECT=tsconfig.typeorm.json TS_NODE_TRANSPILE_ONLY=true node:*)",
       "Bash(nx test:*)",
       "Bash(nx build:*)",
-      "Bash(nx lint:*)"
+      "Bash(nx lint:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)"
     ],
     "additionalDirectories": [
       "C:\\Users\\jenya\\Projects\\full-stack\\pickup-game-manager\\.factory",
