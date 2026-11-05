@@ -7,3 +7,4 @@
 [2026-11-01] FACTORY-TASKS | STATUS: done | Generated 17 tasks — ready to execute
 [2026-11-05] TASK-001 | STATUS: done | Nx 24 monorepo init — apps/web (Angular 22, signals), apps/api (NestJS 11), libs/shared-types; all tests green, builds pass, lint clean
 [2026-11-05] TASK-002 | STATUS: done | Docker + PostgreSQL local setup — docker-compose.yml, .env/.env.example, TypeORM DataSource, TypeOrmModule.forRoot in AppModule; tests green, build passes, lint clean
+[2026-11-05] TASK-003 | STATUS: done | Database schema migration — Player, Game, GameRoster, GameResult, PlayerStat, AuditLog entities + GameStatus/AuditAction enums; InitialSchema migration applied; tests green, build passes, lint clean

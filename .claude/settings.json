@@ -9,11 +9,22 @@
       "Bash(npx nx test:*)",
       "Bash(npx nx build:*)",
       "Bash(npx nx lint:*)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(docker compose:*)",
+      "Bash(npx typeorm:*)",
+      "Bash(ls:*)",
+      "Bash(npx ts-node:*)",
+      "Bash(docker exec:*)",
+      "Bash(npx typeorm-ts-node-commonjs migration:run:*)",
+      "Bash(TS_NODE_PROJECT=apps/api/tsconfig.app.json TS_NODE_TRANSPILE_ONLY=true npx typeorm-ts-node-commonjs:*)",
+      "Bash(TS_NODE_TRANSPILE_ONLY=true TS_NODE_PROJECT=apps/api/tsconfig.app.json npx typeorm-ts-node-commonjs:*)",
+      "Bash(TS_NODE_PROJECT=tsconfig.typeorm.json TS_NODE_TRANSPILE_ONLY=true npx typeorm-ts-node-commonjs:*)",
+      "Bash(TS_NODE_PROJECT=tsconfig.typeorm.json TS_NODE_TRANSPILE_ONLY=true node:*)"
     ],
     "additionalDirectories": [
       "C:\\Users\\jenya\\Projects\\full-stack\\pickup-game-manager\\.factory",
-      "C:\\Users\\jenya\\Projects\\full-stack\\pgm-nx-seed"
+      "C:\\Users\\jenya\\Projects\\full-stack\\pgm-nx-seed",
+      "c:\\Users\\jenya\\Projects\\full-stack\\pickup-game-manager\\apps\\api\\src\\modules\\players"
     ]
   }
 }

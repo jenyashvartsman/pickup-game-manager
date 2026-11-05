@@ -60,9 +60,10 @@ The AI may execute the following without asking for approval:
 ### Database Migrations
 | Command | When to use |
 |---------|------------|
-| `npx typeorm migration:run -d apps/api/src/database/data-source.ts` | Apply all pending migrations |
-| `npx typeorm migration:revert -d apps/api/src/database/data-source.ts` | Revert last migration |
-| `npx typeorm migration:generate apps/api/src/database/migrations/<Name> -d apps/api/src/database/data-source.ts` | Generate migration from entity changes |
+| `TS_NODE_PROJECT=tsconfig.typeorm.json TS_NODE_TRANSPILE_ONLY=true node -r tsconfig-paths/register node_modules/typeorm/cli-ts-node-commonjs.js migration:run -d apps/api/src/database/data-source.ts` | Apply all pending migrations |
+| `TS_NODE_PROJECT=tsconfig.typeorm.json TS_NODE_TRANSPILE_ONLY=true node -r tsconfig-paths/register node_modules/typeorm/cli-ts-node-commonjs.js migration:revert -d apps/api/src/database/data-source.ts` | Revert last migration |
+| `TS_NODE_PROJECT=tsconfig.typeorm.json TS_NODE_TRANSPILE_ONLY=true node -r tsconfig-paths/register node_modules/typeorm/cli-ts-node-commonjs.js migration:generate apps/api/src/database/migrations/<Name> -d apps/api/src/database/data-source.ts` | Generate migration from entity changes |
+| `TS_NODE_PROJECT=tsconfig.typeorm.json TS_NODE_TRANSPILE_ONLY=true node -r tsconfig-paths/register node_modules/typeorm/cli-ts-node-commonjs.js migration:show -d apps/api/src/database/data-source.ts` | Show applied/pending migrations |
 
 ### File Operations
 Read and write any file within the workspace: source code, docs, task files, status.md, factory.log.

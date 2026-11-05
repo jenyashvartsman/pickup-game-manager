@@ -6,7 +6,7 @@
 Current: **EXECUTE**
 
 ## Current Task
-Task 003 — Database Schema Migration
+Task 004 — Database Seed Fixtures
 
 ## Factory Phase (execution)
 `INIT` → `SCAFFOLD` → `CORE` → `FEATURES` → `POLISH`
@@ -18,12 +18,12 @@ Task 003 — Database Schema Migration
 | FACTORY-INIT | Project scaffold created | 2026-11-01 |
 | 001 | Nx Monorepo Init | 2026-11-05 |
 | 002 | Docker + PostgreSQL Local Setup | 2026-11-05 |
+| 003 | Database Schema Migration | 2026-11-05 |
 
 ## Pending Tasks
 
 | Task | Title | Phase |
 |------|-------|-------|
-| 003 | Database Schema Migration | SCAFFOLD |
 | 004 | Database Seed Fixtures | SCAFFOLD |
 | 005 | Players API (CRUD) | CORE |
 | 006 | Games API (CRUD + Roster) | CORE |
@@ -43,4 +43,4 @@ Task 003 — Database Schema Migration
 _None_
 
 ## Last Note
-Task 002 complete. Docker + PostgreSQL local setup — docker-compose.yml, .env/.env.example, TypeORM DataSource, TypeOrmModule.forRoot wired into AppModule. Tests green, build passes, lint clean.
+Task 003 complete. Database schema migration — Player, Game, GameRoster, GameResult, PlayerStat, AuditLog entities + GameStatus/AuditAction enums in shared-types. InitialSchema migration applied to PostgreSQL. Added tsconfig.typeorm.json for TypeORM CLI compatibility with Node 24 + TypeScript 6. Tests green, build passes, lint clean.
