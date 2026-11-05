@@ -6,7 +6,7 @@
 Current: **EXECUTE**
 
 ## Current Task
-Task 005 — Players API (CRUD)
+Task 006 — Games API (CRUD + Roster)
 
 ## Factory Phase (execution)
 `INIT` → `SCAFFOLD` → `CORE` → `FEATURES` → `POLISH`
@@ -20,12 +20,12 @@ Task 005 — Players API (CRUD)
 | 002 | Docker + PostgreSQL Local Setup | 2026-11-05 |
 | 003 | Database Schema Migration | 2026-11-05 |
 | 004 | Database Seed Fixtures | 2026-11-05 |
+| 005 | Players API (CRUD) | 2026-11-05 |
 
 ## Pending Tasks
 
 | Task | Title | Phase |
 |------|-------|-------|
-| 005 | Players API (CRUD) | CORE |
 | 006 | Games API (CRUD + Roster) | CORE |
 | 007 | Game Result & Player Stats API | CORE |
 | 008 | Dashboard Stats API | CORE |
@@ -43,4 +43,4 @@ Task 005 — Players API (CRUD)
 _None_
 
 ## Last Note
-Task 004 complete. Database seed fixtures — 15 players (4 positions), 4 games (2 completed + 2 scheduled), GameResult rows for completed games, PlayerStat rows per rostered player. Idempotent via TRUNCATE CASCADE. `nx run api:seed` target wired in project.json. Tests green, build passes, lint clean.
+Task 005 complete. Players API (CRUD) — PlayersModule, PlayersController, PlayersService, DTOs, AuditLogService, HttpExceptionFilter. ValidationPipe + HttpExceptionFilter registered globally in main.ts. PlayerDto/CreatePlayerRequest/UpdatePlayerRequest exported from shared-types. `@nestjs/typeorm` ESM incompatibility with Jest resolved via moduleNameMapper CJS mock. 10 tests green, build passes, lint clean.
