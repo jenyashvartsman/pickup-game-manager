@@ -6,7 +6,7 @@
 Current: **EXECUTE**
 
 ## Current Task
-Task 004 — Database Seed Fixtures
+Task 005 — Players API (CRUD)
 
 ## Factory Phase (execution)
 `INIT` → `SCAFFOLD` → `CORE` → `FEATURES` → `POLISH`
@@ -19,12 +19,12 @@ Task 004 — Database Seed Fixtures
 | 001 | Nx Monorepo Init | 2026-11-05 |
 | 002 | Docker + PostgreSQL Local Setup | 2026-11-05 |
 | 003 | Database Schema Migration | 2026-11-05 |
+| 004 | Database Seed Fixtures | 2026-11-05 |
 
 ## Pending Tasks
 
 | Task | Title | Phase |
 |------|-------|-------|
-| 004 | Database Seed Fixtures | SCAFFOLD |
 | 005 | Players API (CRUD) | CORE |
 | 006 | Games API (CRUD + Roster) | CORE |
 | 007 | Game Result & Player Stats API | CORE |
@@ -43,4 +43,4 @@ Task 004 — Database Seed Fixtures
 _None_
 
 ## Last Note
-Task 003 complete. Database schema migration — Player, Game, GameRoster, GameResult, PlayerStat, AuditLog entities + GameStatus/AuditAction enums in shared-types. InitialSchema migration applied to PostgreSQL. Added tsconfig.typeorm.json for TypeORM CLI compatibility with Node 24 + TypeScript 6. Tests green, build passes, lint clean.
+Task 004 complete. Database seed fixtures — 15 players (4 positions), 4 games (2 completed + 2 scheduled), GameResult rows for completed games, PlayerStat rows per rostered player. Idempotent via TRUNCATE CASCADE. `nx run api:seed` target wired in project.json. Tests green, build passes, lint clean.

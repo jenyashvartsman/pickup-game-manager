@@ -8,3 +8,4 @@
 [2026-11-05] TASK-001 | STATUS: done | Nx 24 monorepo init — apps/web (Angular 22, signals), apps/api (NestJS 11), libs/shared-types; all tests green, builds pass, lint clean
 [2026-11-05] TASK-002 | STATUS: done | Docker + PostgreSQL local setup — docker-compose.yml, .env/.env.example, TypeORM DataSource, TypeOrmModule.forRoot in AppModule; tests green, build passes, lint clean
 [2026-11-05] TASK-003 | STATUS: done | Database schema migration — Player, Game, GameRoster, GameResult, PlayerStat, AuditLog entities + GameStatus/AuditAction enums; InitialSchema migration applied; tests green, build passes, lint clean
+[2026-11-05] TASK-004 | STATUS: done | Database seed fixtures — 15 players, 4 games (2 completed + 2 scheduled), GameResult + PlayerStats for completed games; nx run api:seed target added; tests green, build passes, lint clean

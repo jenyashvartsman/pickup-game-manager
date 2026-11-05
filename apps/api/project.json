@@ -55,6 +55,17 @@
       "options": {
         "passWithNoTests": true
       }
+    },
+    "seed": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node -r tsconfig-paths/register node_modules/ts-node/dist/bin.js apps/api/src/database/seeds/seed.ts",
+        "cwd": "{workspaceRoot}",
+        "env": {
+          "TS_NODE_PROJECT": "tsconfig.typeorm.json",
+          "TS_NODE_TRANSPILE_ONLY": "true"
+        }
+      }
     }
   }
 }

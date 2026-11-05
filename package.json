@@ -19,7 +19,8 @@
     "docker:logs": "docker compose logs postgres",
     "migration:run": "npx typeorm migration:run -d apps/api/src/database/data-source.ts",
     "migration:revert": "npx typeorm migration:revert -d apps/api/src/database/data-source.ts",
-    "migration:generate": "npx typeorm migration:generate -d apps/api/src/database/data-source.ts"
+    "migration:generate": "npx typeorm migration:generate -d apps/api/src/database/data-source.ts",
+    "seed": "nx run api:seed"
   },
   "private": true,
   "dependencies": {
