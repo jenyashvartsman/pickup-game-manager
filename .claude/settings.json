@@ -1,7 +1,18 @@
 {
   "permissions": {
+    "allow": [
+      "Bash(node:*)",
+      "Bash(npm:*)",
+      "Bash(npx --version:*)",
+      "Read(//c/Users/jenya/Projects/full-stack/**)",
+      "Bash(npx nx g:*)",
+      "Bash(npx nx test:*)",
+      "Bash(npx nx build:*)",
+      "Bash(npx nx lint:*)"
+    ],
     "additionalDirectories": [
-      "C:\\Users\\jenya\\Projects\\full-stack\\pickup-game-manager\\.factory"
+      "C:\\Users\\jenya\\Projects\\full-stack\\pickup-game-manager\\.factory",
+      "C:\\Users\\jenya\\Projects\\full-stack\\pgm-nx-seed"
     ]
   }
 }
