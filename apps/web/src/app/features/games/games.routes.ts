@@ -15,4 +15,11 @@ export const gamesRoutes: Routes = [
         (m) => m.GameFormPageComponent
       ),
   },
+  {
+    path: ':id',
+    loadComponent: () =>
+      import('./pages/game-detail-page/game-detail-page.component').then(
+        (m) => m.GameDetailPageComponent
+      ),
+  },
 ];

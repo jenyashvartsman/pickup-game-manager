@@ -1,0 +1,94 @@
+@use '../../../../../styles/variables' as v;
+
+.game-detail-page {
+  padding: v.$spacing-xl;
+  max-width: 860px;
+  margin: 0 auto;
+
+  @media (max-width: v.$breakpoint-md) {
+    padding: v.$spacing-md;
+  }
+
+  &__header {
+    margin-bottom: v.$spacing-lg;
+  }
+
+  &__back-btn {
+    background: transparent;
+    border: none;
+    color: var(--color-primary);
+    font-size: v.$font-size-sm;
+    font-weight: v.$font-weight-medium;
+    cursor: pointer;
+    padding: 0;
+    transition: opacity v.$transition-fast;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__state {
+    padding: v.$spacing-2xl 0;
+    color: var(--color-text-secondary);
+    text-align: center;
+    font-size: v.$font-size-base;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-lg;
+  }
+
+  &__card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: v.$border-radius-lg;
+    padding: v.$spacing-xl;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-sm;
+  }
+
+  &__title {
+    font-size: v.$font-size-2xl;
+    font-weight: v.$font-weight-bold;
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+
+  &__location {
+    font-size: v.$font-size-sm;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  &__badge {
+    display: inline-block;
+    padding: 2px v.$spacing-sm;
+    border-radius: v.$border-radius-sm;
+    font-size: v.$font-size-xs;
+    font-weight: v.$font-weight-semibold;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+
+    &--scheduled {
+      background: rgba(0, 212, 170, 0.15);
+      color: var(--color-primary);
+    }
+
+    &--completed {
+      background: rgba(63, 185, 80, 0.15);
+      color: var(--color-success);
+    }
+
+    &--cancelled {
+      background: rgba(248, 81, 73, 0.15);
+      color: var(--color-danger);
+    }
+  }
+}

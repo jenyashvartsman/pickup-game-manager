@@ -1,0 +1,51 @@
+<div class="game-result-form">
+  <h2 class="game-result-form__title">Result</h2>
+
+  @if (gameStatus() === 'cancelled') {
+    <p class="game-result-form__cancelled">Game was cancelled.</p>
+  } @else if (result()) {
+    <div class="game-result-form__score">
+      <span class="game-result-form__score-value">
+        {{ result()!.scoreTeamA }} &ndash; {{ result()!.scoreTeamB }}
+      </span>
+      <span class="game-result-form__score-label">Final Score</span>
+    </div>
+  } @else {
+    <form
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+      class="game-result-form__form"
+    >
+      <div class="game-result-form__fields">
+        <div class="game-result-form__field">
+          <label class="game-result-form__label" for="scoreTeamA">Team A</label>
+          <input
+            id="scoreTeamA"
+            type="number"
+            min="0"
+            class="game-result-form__input"
+            formControlName="scoreTeamA"
+          />
+        </div>
+        <span class="game-result-form__sep">&ndash;</span>
+        <div class="game-result-form__field">
+          <label class="game-result-form__label" for="scoreTeamB">Team B</label>
+          <input
+            id="scoreTeamB"
+            type="number"
+            min="0"
+            class="game-result-form__input"
+            formControlName="scoreTeamB"
+          />
+        </div>
+      </div>
+      <button
+        type="submit"
+        class="game-result-form__btn"
+        [disabled]="form.invalid"
+      >
+        Save Result
+      </button>
+    </form>
+  }
+</div>

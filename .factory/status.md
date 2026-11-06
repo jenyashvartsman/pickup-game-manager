@@ -6,7 +6,7 @@
 Current: **EXECUTE**
 
 ## Current Task
-Task 012 — Game Dashboard Page
+Task 013 — Player Dashboard Page
 
 ## Factory Phase (execution)
 `INIT` → `SCAFFOLD` → `CORE` → `FEATURES` → `POLISH`
@@ -27,12 +27,12 @@ Task 012 — Game Dashboard Page
 | 009 | Angular App Shell & Routing | 2026-11-05 |
 | 010 | Players Feature: List & CRUD Pages | 2026-11-05 |
 | 011 | Games Calendar Page | 2026-11-05 |
+| 012 | Game Dashboard Page | 2026-11-06 |
 
 ## Pending Tasks
 
 | Task | Title | Phase |
 |------|-------|-------|
-| 012 | Game Dashboard Page | FEATURES |
 | 013 | Player Dashboard Page | FEATURES |
 | 014 | Main Dashboard Page | FEATURES |
 | 015 | GSAP Animations & Page Transitions | POLISH |
@@ -43,4 +43,4 @@ Task 012 — Game Dashboard Page
 _None_
 
 ## Last Note
-Task 011 complete. Games Calendar Page — game.model.ts (Game, CreateGameRequest, UpdateGameRequest), GamesService (signals: games, isLoading, selectedWeek; computed weekRange; loadGamesForWeek/goToPreviousWeek/goToNextWeek/goToCurrentWeek/createGame/updateGame/deleteGame), GameCardComponent (date/time/location/status badge, gameSelected output), CalendarWeekComponent (7-day grid, computed days with per-day game filtering, daySlotClicked/gameSelected outputs), GamesCalendarPageComponent (week nav, loading state), GameFormPageComponent (ReactiveFormsModule, date pre-fill from query param, POST on submit), games.routes.ts (lazy loadComponent for calendar/new), app.routes.ts updated to loadChildren for games. 73 tests green, build clean, lint clean.
+Task 012 complete. Game Dashboard Page — game.model.ts extended (GameDetail, GamePlayer, GameResult, CreateGameResultRequest, UpdateGameResultRequest, PlayerStat, UpsertPlayerStatRequest), GamesService extended (getGame/addToRoster/removeFromRoster), GameResultService (signals: result, isLoading; loadResult/createResult/updateResult), PlayerStatsService (signals: stats, isLoading; loadStats/upsertStats), RosterListComponent (roster list with remove btn, add-player select+button, computed unrosteredPlayers, disabled for cancelled), GameResultFormComponent (shows score if result exists, form if no result, hidden for cancelled), PlayerStatsFormComponent (FormArray per rostered player, prefills from existing stats, columns: goals/assists/yellowCards/redCards/minutesPlayed), GameDetailPageComponent (/games/:id, loads game+players+result+stats, composes all three child components), games.routes.ts (:id route added. 93 tests green, build clean, lint clean (0 warnings).

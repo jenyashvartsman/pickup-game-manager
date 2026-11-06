@@ -1,0 +1,50 @@
+<div class="roster-list">
+  <h2 class="roster-list__title">Roster ({{ players().length }})</h2>
+
+  @if (players().length === 0) {
+    <p class="roster-list__empty">No players on the roster yet.</p>
+  } @else {
+    <ul class="roster-list__players">
+      @for (player of players(); track player.id) {
+        <li class="roster-list__player">
+          <span class="roster-list__player-name">{{ player.name }}</span>
+          <span class="roster-list__player-position">{{ player.position }}</span>
+          @if (isEditable()) {
+            <button
+              type="button"
+              class="roster-list__remove-btn"
+              (click)="onRemovePlayer(player.id)"
+              [attr.aria-label]="'Remove ' + player.name + ' from roster'"
+            >
+              Remove
+            </button>
+          }
+        </li>
+      }
+    </ul>
+  }
+
+  @if (isEditable() && unrosteredPlayers().length > 0) {
+    <div class="roster-list__add">
+      <select
+        class="roster-list__select"
+        [value]="selectedPlayerId()"
+        (change)="selectedPlayerId.set($any($event.target).value)"
+        aria-label="Select player to add"
+      >
+        <option value="">— Select player —</option>
+        @for (player of unrosteredPlayers(); track player.id) {
+          <option [value]="player.id">{{ player.name }} ({{ player.position }})</option>
+        }
+      </select>
+      <button
+        type="button"
+        class="roster-list__add-btn"
+        [disabled]="!selectedPlayerId()"
+        (click)="onAddPlayer()"
+      >
+        Add Player
+      </button>
+    </div>
+  }
+</div>

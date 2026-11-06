@@ -1,0 +1,106 @@
+@use '../../../../../styles/variables' as v;
+
+.roster-list {
+  &__title {
+    font-size: v.$font-size-lg;
+    font-weight: v.$font-weight-semibold;
+    color: var(--color-text-primary);
+    margin-bottom: v.$spacing-md;
+  }
+
+  &__empty {
+    font-size: v.$font-size-sm;
+    color: var(--color-text-muted);
+  }
+
+  &__players {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 v.$spacing-md;
+  }
+
+  &__player {
+    display: flex;
+    align-items: center;
+    gap: v.$spacing-sm;
+    padding: v.$spacing-sm 0;
+    border-bottom: 1px solid var(--color-border);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__player-name {
+    flex: 1;
+    font-weight: v.$font-weight-medium;
+    color: var(--color-text-primary);
+  }
+
+  &__player-position {
+    font-size: v.$font-size-xs;
+    color: var(--color-text-muted);
+  }
+
+  &__remove-btn {
+    font-size: v.$font-size-xs;
+    padding: 2px v.$spacing-sm;
+    background: transparent;
+    border: 1px solid var(--color-danger);
+    color: var(--color-danger);
+    border-radius: v.$border-radius-sm;
+    cursor: pointer;
+    transition: background v.$transition-fast, color v.$transition-fast;
+
+    &:hover {
+      background: var(--color-danger);
+      color: #fff;
+    }
+  }
+
+  &__add {
+    display: flex;
+    gap: v.$spacing-sm;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__select {
+    flex: 1;
+    min-width: 160px;
+    padding: v.$spacing-sm v.$spacing-md;
+    border: 1px solid var(--color-border);
+    border-radius: v.$border-radius-md;
+    background: var(--color-bg-elevated);
+    color: var(--color-text-primary);
+    font-size: v.$font-size-sm;
+    font-family: v.$font-family-base;
+    transition: border-color v.$transition-fast;
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary);
+    }
+  }
+
+  &__add-btn {
+    padding: v.$spacing-sm v.$spacing-lg;
+    background: var(--color-primary);
+    color: var(--color-bg);
+    border: none;
+    border-radius: v.$border-radius-md;
+    font-weight: v.$font-weight-semibold;
+    font-size: v.$font-size-sm;
+    cursor: pointer;
+    transition: background v.$transition-fast;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &:not(:disabled):hover {
+      background: var(--color-primary-hover);
+    }
+  }
+}

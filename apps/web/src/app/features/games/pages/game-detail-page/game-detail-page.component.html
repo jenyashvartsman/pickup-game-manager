@@ -1,0 +1,70 @@
+<div class="game-detail-page">
+  <div class="game-detail-page__header">
+    <button
+      type="button"
+      class="game-detail-page__back-btn"
+      (click)="onBack()"
+    >
+      &larr; Back to Calendar
+    </button>
+  </div>
+
+  @if (isLoading()) {
+    <p class="game-detail-page__state">Loading game…</p>
+  } @else if (!game()) {
+    <p class="game-detail-page__state">Game not found.</p>
+  } @else {
+    <div class="game-detail-page__content">
+      <!-- Game Info -->
+      <div class="game-detail-page__card">
+        <div class="game-detail-page__info">
+          <h1 class="game-detail-page__title">
+            {{ formatDateTime(game()!.scheduledAt) }}
+          </h1>
+          @if (game()!.location) {
+            <p class="game-detail-page__location">{{ game()!.location }}</p>
+          }
+          <span
+            class="game-detail-page__badge game-detail-page__badge--{{ game()!.status }}"
+          >
+            {{ game()!.status }}
+          </span>
+        </div>
+      </div>
+
+      <!-- Roster -->
+      <div class="game-detail-page__card">
+        <app-roster-list
+          [players]="game()!.players"
+          [availablePlayers]="allPlayers()"
+          [gameStatus]="game()!.status"
+          (playerAdded)="onAddToRoster($event)"
+          (playerRemoved)="onRemoveFromRoster($event)"
+        />
+      </div>
+
+      <!-- Result -->
+      @if (game()!.status !== 'cancelled') {
+        <div class="game-detail-page__card">
+          <app-game-result-form
+            [result]="result()"
+            [gameStatus]="game()!.status"
+            (resultSubmitted)="onResultSubmit($event)"
+          />
+        </div>
+      }
+
+      <!-- Stats -->
+      @if (game()!.status === 'completed') {
+        <div class="game-detail-page__card">
+          <app-player-stats-form
+            [players]="game()!.players"
+            [stats]="stats()"
+            [gameStatus]="game()!.status"
+            (statsSubmitted)="onStatsSubmit($event)"
+          />
+        </div>
+      }
+    </div>
+  }
+</div>

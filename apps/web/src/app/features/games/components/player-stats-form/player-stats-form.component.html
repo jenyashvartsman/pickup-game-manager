@@ -1,0 +1,83 @@
+<div class="player-stats-form">
+  <h2 class="player-stats-form__title">Player Stats</h2>
+
+  @if (gameStatus() === 'cancelled') {
+    <p class="player-stats-form__cancelled">Stats unavailable for cancelled games.</p>
+  } @else if (players().length === 0) {
+    <p class="player-stats-form__empty">Add players to the roster to record stats.</p>
+  } @else {
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="player-stats-form__form">
+      <div class="player-stats-form__table-wrap">
+        <table class="player-stats-form__table">
+          <thead>
+            <tr>
+              <th class="player-stats-form__th">Player</th>
+              <th class="player-stats-form__th">Goals</th>
+              <th class="player-stats-form__th">Assists</th>
+              <th class="player-stats-form__th">Yellow</th>
+              <th class="player-stats-form__th">Red</th>
+              <th class="player-stats-form__th">Min</th>
+            </tr>
+          </thead>
+          <tbody formArrayName="rows">
+            @for (row of rows.controls; track $index) {
+              <tr [formGroupName]="$index" class="player-stats-form__row">
+                <td class="player-stats-form__td player-stats-form__td--name">
+                  {{ row.get('playerName')?.value }}
+                </td>
+                <td class="player-stats-form__td">
+                  <input
+                    type="number"
+                    min="0"
+                    class="player-stats-form__input"
+                    formControlName="goals"
+                  />
+                </td>
+                <td class="player-stats-form__td">
+                  <input
+                    type="number"
+                    min="0"
+                    class="player-stats-form__input"
+                    formControlName="assists"
+                  />
+                </td>
+                <td class="player-stats-form__td">
+                  <input
+                    type="number"
+                    min="0"
+                    class="player-stats-form__input"
+                    formControlName="yellowCards"
+                  />
+                </td>
+                <td class="player-stats-form__td">
+                  <input
+                    type="number"
+                    min="0"
+                    class="player-stats-form__input"
+                    formControlName="redCards"
+                  />
+                </td>
+                <td class="player-stats-form__td">
+                  <input
+                    type="number"
+                    min="0"
+                    class="player-stats-form__input"
+                    formControlName="minutesPlayed"
+                  />
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <button
+        type="submit"
+        class="player-stats-form__btn"
+        [disabled]="form.invalid"
+      >
+        Save Stats
+      </button>
+    </form>
+  }
+</div>

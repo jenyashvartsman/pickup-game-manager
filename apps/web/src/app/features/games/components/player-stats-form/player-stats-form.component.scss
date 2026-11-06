@@ -1,0 +1,101 @@
+@use '../../../../../styles/variables' as v;
+
+.player-stats-form {
+  &__title {
+    font-size: v.$font-size-lg;
+    font-weight: v.$font-weight-semibold;
+    color: var(--color-text-primary);
+    margin-bottom: v.$spacing-md;
+  }
+
+  &__cancelled,
+  &__empty {
+    font-size: v.$font-size-sm;
+    color: var(--color-text-muted);
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-lg;
+  }
+
+  &__table-wrap {
+    overflow-x: auto;
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: v.$font-size-sm;
+  }
+
+  &__th {
+    text-align: left;
+    padding: v.$spacing-sm v.$spacing-md;
+    font-size: v.$font-size-xs;
+    font-weight: v.$font-weight-semibold;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-bottom: 1px solid var(--color-border);
+    white-space: nowrap;
+  }
+
+  &__row {
+    &:nth-child(even) {
+      background: var(--color-bg-elevated);
+    }
+  }
+
+  &__td {
+    padding: v.$spacing-sm v.$spacing-md;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+
+    &--name {
+      font-weight: v.$font-weight-medium;
+      white-space: nowrap;
+    }
+  }
+
+  &__input {
+    width: 56px;
+    padding: v.$spacing-xs v.$spacing-sm;
+    border: 1px solid var(--color-border);
+    border-radius: v.$border-radius-sm;
+    background: var(--color-bg-elevated);
+    color: var(--color-text-primary);
+    font-size: v.$font-size-sm;
+    font-family: v.$font-family-base;
+    text-align: center;
+    transition: border-color v.$transition-fast;
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary);
+    }
+  }
+
+  &__btn {
+    align-self: flex-start;
+    padding: v.$spacing-sm v.$spacing-xl;
+    background: var(--color-primary);
+    color: var(--color-bg);
+    border: none;
+    border-radius: v.$border-radius-md;
+    font-weight: v.$font-weight-semibold;
+    font-size: v.$font-size-sm;
+    cursor: pointer;
+    transition: background v.$transition-fast;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &:not(:disabled):hover {
+      background: var(--color-primary-hover);
+    }
+  }
+}

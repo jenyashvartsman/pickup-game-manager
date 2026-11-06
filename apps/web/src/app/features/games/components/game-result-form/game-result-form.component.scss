@@ -1,0 +1,106 @@
+@use '../../../../../styles/variables' as v;
+
+.game-result-form {
+  &__title {
+    font-size: v.$font-size-lg;
+    font-weight: v.$font-weight-semibold;
+    color: var(--color-text-primary);
+    margin-bottom: v.$spacing-md;
+  }
+
+  &__cancelled {
+    font-size: v.$font-size-sm;
+    color: var(--color-text-muted);
+  }
+
+  &__score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: v.$spacing-xs;
+  }
+
+  &__score-value {
+    font-size: v.$font-size-4xl;
+    font-weight: v.$font-weight-bold;
+    color: var(--color-text-primary);
+    letter-spacing: 0.05em;
+  }
+
+  &__score-label {
+    font-size: v.$font-size-xs;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-lg;
+  }
+
+  &__fields {
+    display: flex;
+    align-items: flex-end;
+    gap: v.$spacing-md;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-xs;
+  }
+
+  &__label {
+    font-size: v.$font-size-sm;
+    font-weight: v.$font-weight-medium;
+    color: var(--color-text-secondary);
+  }
+
+  &__input {
+    width: 72px;
+    padding: v.$spacing-sm;
+    border: 1px solid var(--color-border);
+    border-radius: v.$border-radius-md;
+    background: var(--color-bg-elevated);
+    color: var(--color-text-primary);
+    font-size: v.$font-size-xl;
+    font-family: v.$font-family-base;
+    text-align: center;
+    transition: border-color v.$transition-fast;
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary);
+    }
+  }
+
+  &__sep {
+    font-size: v.$font-size-2xl;
+    color: var(--color-text-secondary);
+    padding-bottom: v.$spacing-xs;
+  }
+
+  &__btn {
+    align-self: flex-start;
+    padding: v.$spacing-sm v.$spacing-xl;
+    background: var(--color-primary);
+    color: var(--color-bg);
+    border: none;
+    border-radius: v.$border-radius-md;
+    font-weight: v.$font-weight-semibold;
+    font-size: v.$font-size-sm;
+    cursor: pointer;
+    transition: background v.$transition-fast;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &:not(:disabled):hover {
+      background: var(--color-primary-hover);
+    }
+  }
+}

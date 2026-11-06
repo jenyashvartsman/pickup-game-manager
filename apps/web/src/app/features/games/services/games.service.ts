@@ -4,6 +4,7 @@ import { Observable, tap } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import {
   Game,
+  GameDetail,
   CreateGameRequest,
   UpdateGameRequest,
 } from '../models/game.model';
@@ -100,6 +101,22 @@ export class GamesService {
       tap(() => {
         this.games.update((list) => list.filter((g) => g.id !== id));
       })
+    );
+  }
+
+  getGame(id: string): Observable<GameDetail> {
+    return this.http.get<GameDetail>(`${this.baseUrl}/${id}`);
+  }
+
+  addToRoster(gameId: string, playerId: string): Observable<GameDetail> {
+    return this.http.post<GameDetail>(`${this.baseUrl}/${gameId}/roster`, {
+      playerId,
+    });
+  }
+
+  removeFromRoster(gameId: string, playerId: string): Observable<void> {
+    return this.http.delete<void>(
+      `${this.baseUrl}/${gameId}/roster/${playerId}`
     );
   }
 }
