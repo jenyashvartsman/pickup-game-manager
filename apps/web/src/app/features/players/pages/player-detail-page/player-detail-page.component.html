@@ -1,0 +1,59 @@
+<div class="player-detail-page">
+  <header class="player-detail-page__header">
+    <button class="player-detail-page__back-btn" type="button" (click)="onBack()">
+      &larr; Players
+    </button>
+    @if (player()) {
+      <h1 class="player-detail-page__name">{{ player()!.name }}</h1>
+      <span class="player-detail-page__position">{{ player()!.position }}</span>
+    }
+  </header>
+
+  @if (isLoading()) {
+    <div class="player-detail-page__loading">Loading…</div>
+  } @else if (player()) {
+    <section class="player-detail-page__section">
+      <h2 class="player-detail-page__section-title">Career Totals</h2>
+      <div class="player-detail-page__totals-grid">
+        <div class="player-detail-page__stat-card">
+          <span class="player-detail-page__stat-value">{{ careerTotals().gamesPlayed }}</span>
+          <span class="player-detail-page__stat-label">Games</span>
+        </div>
+        <div class="player-detail-page__stat-card">
+          <span class="player-detail-page__stat-value">{{ careerTotals().goals }}</span>
+          <span class="player-detail-page__stat-label">Goals</span>
+        </div>
+        <div class="player-detail-page__stat-card">
+          <span class="player-detail-page__stat-value">{{ careerTotals().assists }}</span>
+          <span class="player-detail-page__stat-label">Assists</span>
+        </div>
+        <div class="player-detail-page__stat-card">
+          <span class="player-detail-page__stat-value">{{ careerTotals().yellowCards }}</span>
+          <span class="player-detail-page__stat-label">Yellow Cards</span>
+        </div>
+        <div class="player-detail-page__stat-card">
+          <span class="player-detail-page__stat-value">{{ careerTotals().redCards }}</span>
+          <span class="player-detail-page__stat-label">Red Cards</span>
+        </div>
+        <div class="player-detail-page__stat-card">
+          <span class="player-detail-page__stat-value">{{ careerTotals().minutesPlayed }}</span>
+          <span class="player-detail-page__stat-label">Minutes</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="player-detail-page__section">
+      <h2 class="player-detail-page__section-title">Goals &amp; Assists Over Time</h2>
+      <div class="player-detail-page__card">
+        <app-player-stats-chart [stats]="stats()" />
+      </div>
+    </section>
+
+    <section class="player-detail-page__section">
+      <h2 class="player-detail-page__section-title">Game History</h2>
+      <div class="player-detail-page__card">
+        <app-player-history-table [stats]="stats()" />
+      </div>
+    </section>
+  }
+</div>

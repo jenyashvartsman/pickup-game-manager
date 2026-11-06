@@ -10,13 +10,17 @@ import {
   Post,
 } from '@nestjs/common';
 import { PlayersService } from './players.service';
+import { PlayerStatsService } from '../player-stats/player-stats.service';
 import { CreatePlayerDto } from './dto/create-player.dto';
 import { UpdatePlayerDto } from './dto/update-player.dto';
-import { PlayerDto } from 'shared-types';
+import { PlayerDto, PlayerStatDto } from 'shared-types';
 
 @Controller('players')
 export class PlayersController {
-  constructor(private readonly playersService: PlayersService) {}
+  constructor(
+    private readonly playersService: PlayersService,
+    private readonly playerStatsService: PlayerStatsService,
+  ) {}
 
   @Get()
   findAll(): Promise<PlayerDto[]> {
@@ -26,6 +30,11 @@ export class PlayersController {
   @Get(':id')
   findOne(@Param('id') id: string): Promise<PlayerDto> {
     return this.playersService.findOne(id);
+  }
+
+  @Get(':id/stats')
+  getPlayerStats(@Param('id') id: string): Promise<PlayerStatDto[]> {
+    return this.playerStatsService.getStatsByPlayer(id);
   }
 
   @Post()

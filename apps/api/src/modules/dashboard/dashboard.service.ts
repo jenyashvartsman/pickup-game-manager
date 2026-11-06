@@ -65,8 +65,8 @@ export class DashboardService {
         id: game.id,
         scheduledAt: game.scheduledAt,
         location: game.location,
-        scoreTeamA: game.result!.scoreTeamA,
-        scoreTeamB: game.result!.scoreTeamB,
+        scoreTeamA: game.result?.scoreTeamA ?? 0,
+        scoreTeamB: game.result?.scoreTeamB ?? 0,
       }));
   }
 

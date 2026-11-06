@@ -116,6 +116,35 @@ describe('PlayerStatsService', () => {
     auditLogService = module.get(AuditLogService);
   });
 
+  describe('getStatsByPlayer', () => {
+    it('returns all stats for a player across games as DTOs', async () => {
+      const player = makePlayer();
+      const game = makeGame();
+      const stat = makePlayerStat(game, player);
+      playerStatRepo.find.mockResolvedValue([stat]);
+
+      const result = await service.getStatsByPlayer('player-uuid-1');
+
+      expect(playerStatRepo.find).toHaveBeenCalledWith({
+        where: { player: { id: 'player-uuid-1' } },
+        relations: { game: true, player: true },
+        order: { game: { scheduledAt: 'ASC' } },
+      });
+      expect(result).toHaveLength(1);
+      expect(result[0].playerId).toBe('player-uuid-1');
+      expect(result[0].gameId).toBe('game-uuid-1');
+      expect(result[0].goals).toBe(1);
+    });
+
+    it('returns an empty array when the player has no stats', async () => {
+      playerStatRepo.find.mockResolvedValue([]);
+
+      const result = await service.getStatsByPlayer('player-uuid-1');
+
+      expect(result).toEqual([]);
+    });
+  });
+
   describe('getStats', () => {
     it('returns all player stats for a game as DTOs', async () => {
       const player = makePlayer();

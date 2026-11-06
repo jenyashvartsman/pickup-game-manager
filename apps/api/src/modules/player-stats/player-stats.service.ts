@@ -27,6 +27,7 @@ export class PlayerStatsService {
       id: stat.id,
       gameId: stat.game.id,
       playerId: stat.player.id,
+      gameScheduledAt: stat.game.scheduledAt,
       goals: stat.goals,
       assists: stat.assists,
       yellowCards: stat.yellowCards,
@@ -41,6 +42,15 @@ export class PlayerStatsService {
     const stats = await this.playerStatRepository.find({
       where: { game: { id: gameId } },
       relations: { game: true, player: true },
+    });
+    return stats.map((s) => this.toDto(s));
+  }
+
+  async getStatsByPlayer(playerId: string): Promise<PlayerStatDto[]> {
+    const stats = await this.playerStatRepository.find({
+      where: { player: { id: playerId } },
+      relations: { game: true, player: true },
+      order: { game: { scheduledAt: 'ASC' } },
     });
     return stats.map((s) => this.toDto(s));
   }

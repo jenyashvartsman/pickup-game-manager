@@ -4,6 +4,7 @@ import { Observable, tap } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import {
   Player,
+  PlayerStat,
   CreatePlayerRequest,
   UpdatePlayerRequest,
 } from '../models/player.model';
@@ -31,6 +32,10 @@ export class PlayersService {
 
   getPlayer(id: string): Observable<Player> {
     return this.http.get<Player>(`${this.baseUrl}/${id}`);
+  }
+
+  getPlayerStats(id: string): Observable<PlayerStat[]> {
+    return this.http.get<PlayerStat[]>(`${this.baseUrl}/${id}/stats`);
   }
 
   createPlayer(data: CreatePlayerRequest): Observable<Player> {

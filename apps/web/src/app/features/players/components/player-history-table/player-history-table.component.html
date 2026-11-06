@@ -1,0 +1,38 @@
+<div class="player-history-table">
+  @if (stats().length === 0) {
+    <div class="player-history-table__empty">
+      <p class="player-history-table__empty-text">No game history yet.</p>
+    </div>
+  } @else {
+    <div class="player-history-table__wrapper">
+      <table class="player-history-table__table">
+        <thead>
+          <tr>
+            <th class="player-history-table__th">Date</th>
+            <th class="player-history-table__th player-history-table__th--center">G</th>
+            <th class="player-history-table__th player-history-table__th--center">A</th>
+            <th class="player-history-table__th player-history-table__th--center">YC</th>
+            <th class="player-history-table__th player-history-table__th--center">RC</th>
+            <th class="player-history-table__th player-history-table__th--center">Min</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (stat of stats(); track stat.id) {
+            <tr class="player-history-table__row">
+              <td class="player-history-table__td">
+                <a [routerLink]="['/games', stat.gameId]" class="player-history-table__game-link">
+                  {{ formatDate(stat.gameScheduledAt) }}
+                </a>
+              </td>
+              <td class="player-history-table__td player-history-table__td--center">{{ stat.goals }}</td>
+              <td class="player-history-table__td player-history-table__td--center">{{ stat.assists }}</td>
+              <td class="player-history-table__td player-history-table__td--center">{{ stat.yellowCards }}</td>
+              <td class="player-history-table__td player-history-table__td--center">{{ stat.redCards }}</td>
+              <td class="player-history-table__td player-history-table__td--center">{{ stat.minutesPlayed }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

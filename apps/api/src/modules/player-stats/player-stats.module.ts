@@ -11,5 +11,6 @@ import { AuditLogService } from '../audit-logs/audit-log.service';
   imports: [TypeOrmModule.forFeature([PlayerStat, Game, AuditLog])],
   controllers: [PlayerStatsController],
   providers: [PlayerStatsService, AuditLogService],
+  exports: [PlayerStatsService],
 })
 export class PlayerStatsModule {}

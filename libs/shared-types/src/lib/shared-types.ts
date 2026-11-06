@@ -66,6 +66,7 @@ export interface PlayerStatDto {
   id: string;
   gameId: string;
   playerId: string;
+  gameScheduledAt: Date;
   goals: number;
   assists: number;
   yellowCards: number;

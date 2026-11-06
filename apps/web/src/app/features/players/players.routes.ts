@@ -22,4 +22,11 @@ export const playersRoutes: Routes = [
         (m) => m.PlayerFormPageComponent
       ),
   },
+  {
+    path: ':id',
+    loadComponent: () =>
+      import('./pages/player-detail-page/player-detail-page.component').then(
+        (m) => m.PlayerDetailPageComponent
+      ),
+  },
 ];

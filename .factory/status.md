@@ -6,7 +6,7 @@
 Current: **EXECUTE**
 
 ## Current Task
-Task 013 — Player Dashboard Page
+Task 014 — Main Dashboard Page
 
 ## Factory Phase (execution)
 `INIT` → `SCAFFOLD` → `CORE` → `FEATURES` → `POLISH`
@@ -28,12 +28,12 @@ Task 013 — Player Dashboard Page
 | 010 | Players Feature: List & CRUD Pages | 2026-11-05 |
 | 011 | Games Calendar Page | 2026-11-05 |
 | 012 | Game Dashboard Page | 2026-11-06 |
+| 013 | Player Dashboard Page | 2026-11-06 |
 
 ## Pending Tasks
 
 | Task | Title | Phase |
 |------|-------|-------|
-| 013 | Player Dashboard Page | FEATURES |
 | 014 | Main Dashboard Page | FEATURES |
 | 015 | GSAP Animations & Page Transitions | POLISH |
 | 016 | Polish: Empty States, Error States & HTTP Interceptor | POLISH |
@@ -43,4 +43,4 @@ Task 013 — Player Dashboard Page
 _None_
 
 ## Last Note
-Task 012 complete. Game Dashboard Page — game.model.ts extended (GameDetail, GamePlayer, GameResult, CreateGameResultRequest, UpdateGameResultRequest, PlayerStat, UpsertPlayerStatRequest), GamesService extended (getGame/addToRoster/removeFromRoster), GameResultService (signals: result, isLoading; loadResult/createResult/updateResult), PlayerStatsService (signals: stats, isLoading; loadStats/upsertStats), RosterListComponent (roster list with remove btn, add-player select+button, computed unrosteredPlayers, disabled for cancelled), GameResultFormComponent (shows score if result exists, form if no result, hidden for cancelled), PlayerStatsFormComponent (FormArray per rostered player, prefills from existing stats, columns: goals/assists/yellowCards/redCards/minutesPlayed), GameDetailPageComponent (/games/:id, loads game+players+result+stats, composes all three child components), games.routes.ts (:id route added. 93 tests green, build clean, lint clean (0 warnings).
+Task 013 complete. Player Dashboard Page — PlayerStatDto extended (gameScheduledAt), PlayerStatsService.getStatsByPlayer (by playerId ordered by scheduledAt), GET /players/:id/stats in PlayersController, PlayerStatsModule exports PlayerStatsService, PlayersModule imports PlayerStatsModule; player.model.ts (PlayerStat/PlayerCareerTotals/computeCareerTotals pure function), PlayersService.getPlayerStats; PlayerHistoryTableComponent (table: date/goals/assists/yc/rc/min, links to game, empty state), PlayerStatsChartComponent (Chart.js bar chart goals+assists per game, Chart.js mocked in tests), PlayerDetailPageComponent (/players/:id, career totals grid 6 stat cards, chart section, history section); players.routes.ts :id route added; chart.js installed; 108 web + all API tests green, build clean, lint clean (0 warnings).

@@ -1,0 +1,9 @@
+<div class="player-stats-chart">
+  @if (stats().length === 0) {
+    <div class="player-stats-chart__empty">
+      <p class="player-stats-chart__empty-text">No data to chart yet.</p>
+    </div>
+  } @else {
+    <canvas #chartCanvas class="player-stats-chart__canvas"></canvas>
+  }
+</div>
