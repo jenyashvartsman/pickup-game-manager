@@ -39,6 +39,7 @@
     <app-calendar-week
       [weekStart]="gamesService.selectedWeek()"
       [games]="gamesService.games()"
+      [direction]="slideDirection()"
       (daySlotClicked)="onDaySlotClicked($event)"
       (gameSelected)="onGameSelected($event)"
     />

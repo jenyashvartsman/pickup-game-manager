@@ -6,7 +6,7 @@
 Current: **EXECUTE**
 
 ## Current Task
-Task 015 — GSAP Animations & Page Transitions
+Task 016 — Polish: Empty States, Error States & HTTP Interceptor
 
 ## Factory Phase (execution)
 `INIT` → `SCAFFOLD` → `CORE` → `FEATURES` → `POLISH`
@@ -30,12 +30,12 @@ Task 015 — GSAP Animations & Page Transitions
 | 012 | Game Dashboard Page | 2026-11-06 |
 | 013 | Player Dashboard Page | 2026-11-06 |
 | 014 | Main Dashboard Page | 2026-11-06 |
+| 015 | GSAP Animations & Page Transitions | 2026-11-06 |
 
 ## Pending Tasks
 
 | Task | Title | Phase |
 |------|-------|-------|
-| 015 | GSAP Animations & Page Transitions | POLISH |
 | 016 | Polish: Empty States, Error States & HTTP Interceptor | POLISH |
 | 017 | Production Readiness & README | POLISH |
 
@@ -43,4 +43,4 @@ Task 015 — GSAP Animations & Page Transitions
 _None_
 
 ## Last Note
-Task 014 complete. Main Dashboard Page — dashboard.model.ts (UpcomingGameDto/RecentResultDto/TopPlayerDto/DashboardSummary), DashboardService (summary signal, isLoading signal, loadSummary()), UpcomingGamesCardComponent (upcoming games list → /games/:id, empty state), RecentResultsCardComponent (last 5 results with scores → /games/:id, empty state), TopPlayersCardComponent (top 5 players by goals+assists → /players/:id, rank badges, empty state), DashboardPageComponent (responsive 1→2→3 column grid), dashboard.routes.ts (lazy '' route), app.routes.ts switched to loadChildren; / redirects to /dashboard; tests green, build clean, lint clean.
+Task 015 complete. GSAP Animations & Page Transitions — gsap@3.15.1 installed; AnimationService (staggerIn/slideWeek/prefersReducedMotion, reduced-motion guard, 9 unit tests); DashboardPageComponent stagger-fades section cards on load; CalendarWeekComponent slides on weekStart change; GamesCalendarPageComponent tracks slideDirection (left/right); PlayerDetailPageComponent counter-animates displayTotals via GSAP tween; template uses displayTotals(); AnimationService mocked in PlayerDetailPage spec; 16 suites 125 tests green, build clean, lint clean.

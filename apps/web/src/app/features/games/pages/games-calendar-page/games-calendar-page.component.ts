@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { GamesService } from '../../services/games.service';
 import { CalendarWeekComponent } from '../../components/calendar-week/calendar-week.component';
@@ -13,17 +13,20 @@ import { Game } from '../../models/game.model';
 export class GamesCalendarPageComponent implements OnInit {
   private readonly router = inject(Router);
   protected readonly gamesService = inject(GamesService);
+  protected readonly slideDirection = signal<'left' | 'right'>('left');
 
   ngOnInit(): void {
     this.gamesService.loadGamesForWeek();
   }
 
   protected onPreviousWeek(): void {
+    this.slideDirection.set('right');
     this.gamesService.goToPreviousWeek();
     this.gamesService.loadGamesForWeek();
   }
 
   protected onNextWeek(): void {
+    this.slideDirection.set('left');
     this.gamesService.goToNextWeek();
     this.gamesService.loadGamesForWeek();
   }

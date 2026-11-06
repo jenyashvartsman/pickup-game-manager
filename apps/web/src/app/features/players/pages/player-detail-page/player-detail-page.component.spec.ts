@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { of, throwError } from 'rxjs';
 import { PlayerDetailPageComponent } from './player-detail-page.component';
 import { PlayersService } from '../../services/players.service';
+import { AnimationService } from '../../../../core/services/animation.service';
 import { Player, PlayerStat, computeCareerTotals } from '../../models/player.model';
 
 const mockPlayer: Player = {
@@ -64,6 +65,8 @@ describe('computeCareerTotals', () => {
 describe('PlayerDetailPageComponent', () => {
   let fixture: ComponentFixture<PlayerDetailPageComponent>;
   let playersServiceMock: jest.Mocked<Partial<PlayersService>>;
+  // Use reduced-motion mode in tests so displayTotals is set synchronously (no GSAP tween)
+  const animationServiceMock = { prefersReducedMotion: jest.fn().mockReturnValue(true) };
 
   beforeEach(async () => {
     playersServiceMock = {
@@ -75,6 +78,7 @@ describe('PlayerDetailPageComponent', () => {
       imports: [PlayerDetailPageComponent],
       providers: [
         { provide: PlayersService, useValue: playersServiceMock },
+        { provide: AnimationService, useValue: animationServiceMock },
         {
           provide: ActivatedRoute,
           useValue: { snapshot: { paramMap: { get: () => 'player-1' } } },

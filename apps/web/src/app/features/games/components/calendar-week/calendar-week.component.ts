@@ -1,6 +1,7 @@
-import { Component, computed, input, output } from '@angular/core';
+import { Component, ElementRef, computed, effect, inject, input, output } from '@angular/core';
 import { Game } from '../../models/game.model';
 import { GameCardComponent } from '../game-card/game-card.component';
+import { AnimationService } from '../../../../core/services/animation.service';
 
 export interface CalendarDay {
   date: Date;
@@ -18,8 +19,24 @@ export interface CalendarDay {
 export class CalendarWeekComponent {
   weekStart = input.required<Date>();
   games = input<Game[]>([]);
+  direction = input<'left' | 'right'>('left');
   daySlotClicked = output<Date>();
   gameSelected = output<Game>();
+
+  private readonly el = inject(ElementRef);
+  private readonly animationService = inject(AnimationService);
+
+  constructor() {
+    effect(() => {
+      // Track weekStart so the animation fires on initial mount and on every week change
+      const _start = this.weekStart();
+      void _start;
+      // Defer until after Angular has committed the DOM for this CD cycle
+      Promise.resolve().then(() => {
+        this.animationService.slideWeek(this.el.nativeElement, this.direction());
+      });
+    });
+  }
 
   protected readonly days = computed<CalendarDay[]>(() => {
     const start = this.weekStart();
