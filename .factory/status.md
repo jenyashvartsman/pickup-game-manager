@@ -6,7 +6,7 @@
 Current: **EXECUTE**
 
 ## Current Task
-Task 014 — Main Dashboard Page
+Task 015 — GSAP Animations & Page Transitions
 
 ## Factory Phase (execution)
 `INIT` → `SCAFFOLD` → `CORE` → `FEATURES` → `POLISH`
@@ -29,12 +29,12 @@ Task 014 — Main Dashboard Page
 | 011 | Games Calendar Page | 2026-11-05 |
 | 012 | Game Dashboard Page | 2026-11-06 |
 | 013 | Player Dashboard Page | 2026-11-06 |
+| 014 | Main Dashboard Page | 2026-11-06 |
 
 ## Pending Tasks
 
 | Task | Title | Phase |
 |------|-------|-------|
-| 014 | Main Dashboard Page | FEATURES |
 | 015 | GSAP Animations & Page Transitions | POLISH |
 | 016 | Polish: Empty States, Error States & HTTP Interceptor | POLISH |
 | 017 | Production Readiness & README | POLISH |
@@ -43,4 +43,4 @@ Task 014 — Main Dashboard Page
 _None_
 
 ## Last Note
-Task 013 complete. Player Dashboard Page — PlayerStatDto extended (gameScheduledAt), PlayerStatsService.getStatsByPlayer (by playerId ordered by scheduledAt), GET /players/:id/stats in PlayersController, PlayerStatsModule exports PlayerStatsService, PlayersModule imports PlayerStatsModule; player.model.ts (PlayerStat/PlayerCareerTotals/computeCareerTotals pure function), PlayersService.getPlayerStats; PlayerHistoryTableComponent (table: date/goals/assists/yc/rc/min, links to game, empty state), PlayerStatsChartComponent (Chart.js bar chart goals+assists per game, Chart.js mocked in tests), PlayerDetailPageComponent (/players/:id, career totals grid 6 stat cards, chart section, history section); players.routes.ts :id route added; chart.js installed; 108 web + all API tests green, build clean, lint clean (0 warnings).
+Task 014 complete. Main Dashboard Page — dashboard.model.ts (UpcomingGameDto/RecentResultDto/TopPlayerDto/DashboardSummary), DashboardService (summary signal, isLoading signal, loadSummary()), UpcomingGamesCardComponent (upcoming games list → /games/:id, empty state), RecentResultsCardComponent (last 5 results with scores → /games/:id, empty state), TopPlayersCardComponent (top 5 players by goals+assists → /players/:id, rank badges, empty state), DashboardPageComponent (responsive 1→2→3 column grid), dashboard.routes.ts (lazy '' route), app.routes.ts switched to loadChildren; / redirects to /dashboard; tests green, build clean, lint clean.

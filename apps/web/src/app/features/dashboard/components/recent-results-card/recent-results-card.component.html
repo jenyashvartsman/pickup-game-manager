@@ -1,0 +1,24 @@
+<div class="recent-results-card">
+  <header class="recent-results-card__header">
+    <h2 class="recent-results-card__title">Recent Results</h2>
+    <a class="recent-results-card__view-all" routerLink="/games">View all</a>
+  </header>
+
+  @if (results().length === 0) {
+    <p class="recent-results-card__empty">No completed games yet.</p>
+  } @else {
+    <ul class="recent-results-card__list">
+      @for (result of results(); track result.id) {
+        <li class="recent-results-card__item">
+          <a class="recent-results-card__link" [routerLink]="['/games', result.id]">
+            <span class="recent-results-card__date">{{ result.scheduledAt | date:'EEE, MMM d' }}</span>
+            <span class="recent-results-card__location">{{ result.location ?? 'Location TBD' }}</span>
+            <span class="recent-results-card__score">
+              {{ result.scoreTeamA }} – {{ result.scoreTeamB }}
+            </span>
+          </a>
+        </li>
+      }
+    </ul>
+  }
+</div>

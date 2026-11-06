@@ -1,0 +1,23 @@
+<div class="dashboard-page">
+  <header class="dashboard-page__header">
+    <h1 class="dashboard-page__title">Dashboard</h1>
+  </header>
+
+  @if (isLoading()) {
+    <div class="dashboard-page__loading">Loading…</div>
+  } @else {
+    <div class="dashboard-page__grid">
+      <section class="dashboard-page__section">
+        <app-upcoming-games-card [games]="upcomingGames()" />
+      </section>
+
+      <section class="dashboard-page__section">
+        <app-recent-results-card [results]="recentResults()" />
+      </section>
+
+      <section class="dashboard-page__section">
+        <app-top-players-card [players]="topPlayers()" />
+      </section>
+    </div>
+  }
+</div>

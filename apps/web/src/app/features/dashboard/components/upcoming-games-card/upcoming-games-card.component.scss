@@ -1,0 +1,84 @@
+.upcoming-games-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1.25rem;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+
+  &__view-all {
+    font-size: 0.8125rem;
+    color: var(--color-accent);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__empty {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__item {
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.625rem 0.75rem;
+    text-decoration: none;
+    background: var(--color-bg);
+    border-radius: 6px;
+    transition: background 0.15s;
+
+    &:hover {
+      background: var(--color-border);
+    }
+  }
+
+  &__date {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    min-width: 11rem;
+  }
+
+  &__location {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    flex: 1;
+  }
+
+  &__players {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+  }
+}

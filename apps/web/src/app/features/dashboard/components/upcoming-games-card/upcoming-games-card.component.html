@@ -1,0 +1,22 @@
+<div class="upcoming-games-card">
+  <header class="upcoming-games-card__header">
+    <h2 class="upcoming-games-card__title">Upcoming Games</h2>
+    <a class="upcoming-games-card__view-all" routerLink="/games">View all</a>
+  </header>
+
+  @if (games().length === 0) {
+    <p class="upcoming-games-card__empty">No games scheduled in the next 7 days.</p>
+  } @else {
+    <ul class="upcoming-games-card__list">
+      @for (game of games(); track game.id) {
+        <li class="upcoming-games-card__item">
+          <a class="upcoming-games-card__link" [routerLink]="['/games', game.id]">
+            <span class="upcoming-games-card__date">{{ game.scheduledAt | date:'EEE, MMM d · h:mm a' }}</span>
+            <span class="upcoming-games-card__location">{{ game.location ?? 'Location TBD' }}</span>
+            <span class="upcoming-games-card__players">{{ game.playerCount }} players</span>
+          </a>
+        </li>
+      }
+    </ul>
+  }
+</div>

@@ -4,10 +4,10 @@ export const appRoutes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   {
     path: 'dashboard',
-    loadComponent: () =>
-      import(
-        './features/dashboard/pages/dashboard-page/dashboard-page.component'
-      ).then((m) => m.DashboardPageComponent),
+    loadChildren: () =>
+      import('./features/dashboard/dashboard.routes').then(
+        (m) => m.dashboardRoutes
+      ),
   },
   {
     path: 'games',
