@@ -196,3 +196,26 @@ Add a server connection with:
 - Database: `pickup_game`
 - Username: `pguser`
 - Password: `pgpassword`
+
+---
+
+## AI Factory Method — Retrospective
+
+This project was built using the AI Factory Method (task-driven AI development). **The process did not work well.** The template lacked sufficient specification across the board — missing instructions were the norm, not the exception, and the AI was left to make too many undirected decisions throughout every phase.
+
+**Overall verdict:** The template failed to provide sufficient guidance at every level: project setup, folder structure, UX definition, task scoping, skill/command authoring, and Definition of Done. The result was inconsistent output, retrofitted cross-cutting concerns, and a codebase that required significant cleanup after the fact.
+
+**Specific failures (not exhaustive):**
+
+- Task files lacked exact file paths, import paths, and dependency ordering — the AI had to infer too much
+- No foundation tasks: shared infrastructure (interceptors, error states, loaders, animation) was deferred until after all features shipped
+- UX phase produced vague placeholders instead of a concrete token set and component contract
+- Folder structure was sketched loosely; no enforced layer separation from the start
+- Feature tasks had no acceptance criteria for empty, error, or loading states — only the happy path
+- Skills/commands were inconsistently named and placed, with no enforced prefix or canonical location
+- README was written from scratch as the final task, reconstructing decisions from memory
+- No multi-task execution skill; the developer had to manually re-invoke after every single task
+- No post-task developer review checklist; the automated cycle ending at lint was treated as "done"
+- Phase questions were open-ended rather than targeted, producing answers that left too much ambiguity for later tasks
+
+**Next step:** [`FACTORY-TEMPLATE-IMPROVEMENTS.md`](FACTORY-TEMPLATE-IMPROVEMENTS.md) captures the specific improvements to address these failures. It will be used as input to generate a revised template before the next project.
