@@ -174,3 +174,111 @@ Replace the vague "place anything here" tip with explicit guidance:
 - The AI must read every file in `.factory/ux/` before asking Phase 3 questions and must extract concrete color/font values from them if present.
 - If `links.md` is present, the AI must acknowledge each link and note what design pattern it is borrowing from that reference.
 - Phase 8 (context file generation) must include a **UX References** section listing every file in `.factory/ux/` so future task executions know the references exist.
+
+---
+
+## [2026-11-06] Shared infrastructure must be built before feature tasks, not deferred
+
+**Problem:** Tasks 015 and 016 in this project illustrate the anti-pattern: an HTTP error interceptor, loading skeletons, empty-state components, an animation service, and a `prefers-reduced-motion` guard were all written *after* a dozen feature tasks had already shipped. Every feature task that ran before them silently skipped error states, loading feedback, and animation — creating a gap between what was coded and what was actually shippable.
+
+**Root cause:** Phase 9 (task generation) generates feature tasks first and defers cross-cutting concerns to a "polish" task at the end. By then retrofitting is expensive and the "polish" task becomes a large, risky batch of unrelated changes.
+
+**Improvement — Foundation task(s) before the first feature task:**
+
+Phase 9 must generate one or two *foundation* tasks numbered before the first feature task (e.g., task-001, task-002). These tasks wire up everything that every later feature will depend on:
+
+**Frontend foundation task must include:**
+- Global HTTP error interceptor registered in `app.config.ts`
+- `EmptyStateComponent` in `shared/components/` (reusable, slot-based)
+- `SkeletonCardComponent` in `shared/components/` (reusable)
+- `AnimationService` (or equivalent utility) encapsulating the app's animation primitives and `prefers-reduced-motion` guard
+- CSS custom property tokens (`theme.css`) applied globally
+- Toast / notification service for surfacing error messages
+
+**Backend foundation task must include:**
+- Global exception filter wired up in `main.ts`
+- Standardized API error response shape (`{ statusCode, message, error }`)
+- Request-logging middleware
+- Database connection health-check endpoint
+
+**Rule:** No feature task may be numbered until all foundation tasks are defined. Feature task files must reference the shared components by their exact import path so they are used from the start, not bolted on later.
+
+---
+
+## [2026-11-06] Features are developed end-to-end — polish is part of the feature, not a separate task
+
+**Problem:** The same tasks 015 and 016 show a second anti-pattern: each feature task was considered "done" once the happy path rendered. Empty states, error states, loading feedback, and entrance animations were saved for a dedicated pass at the end. This produces a long queue of half-finished features and a large, hard-to-review "polish" commit.
+
+**Improvement — Definition of Done includes polish for every feature task:**
+
+Every generated feature task must include the following acceptance criteria sections as a mandatory template, not optional extras:
+
+```
+## Acceptance Criteria
+
+### Functional (happy path)
+- [ ] <feature-specific criteria>
+
+### Empty state
+- [ ] <ComponentName> shows `<EmptyStateComponent>` with a contextual message when the list / query returns zero results
+
+### Error state
+- [ ] API failure surfaces a visible error message via the global interceptor / toast service; the component does not silently show a blank screen
+
+### Loading state
+- [ ] Data-fetching views show `<SkeletonCardComponent>` (or equivalent) while the HTTP request is in flight
+
+### Animation
+- [ ] Entrance animation is applied using `AnimationService` consistent with ux.md; animation is skipped when `prefers-reduced-motion` is active
+```
+
+**Rule:** A task is not complete until all four state sections pass, not just the happy path. The task execution cycle (code → test → build → lint) must be run against all four states. If a foundation component (empty state, skeleton, animation service) does not exist yet, the task is blocked — it must list the foundation task as a dependency.
+
+---
+
+## [2026-11-06] README is created in the foundation task and updated incrementally, never written all at once at the end
+
+**Problem:** Task 017 in this project writes the README from scratch as the last task. By that point the author must reconstruct every setup step, command, and architectural decision from memory or by re-reading the whole codebase. The result is a one-shot, hard-to-review commit that is easy to get wrong. It also means every task before 017 ships without any developer-facing documentation.
+
+**Improvement — README as a living document:**
+
+The frontend foundation task must create `README.md` with the full skeleton — all sections present, stubs marked `<!-- TODO -->` where content is not yet known:
+
+```markdown
+# <Project Name>
+
+> <one-line description from app.md>
+
+## Prerequisites
+<!-- TODO: fill in after architecture is confirmed -->
+
+## Quick Start
+<!-- TODO: fill in after first runnable task -->
+
+## Running Locally
+<!-- TODO -->
+
+## Nx Commands Reference
+<!-- TODO -->
+
+## Architecture Overview
+<!-- TODO -->
+
+## Environment Variables
+<!-- TODO -->
+```
+
+**Update rule per task:** Every task file must include a **README** row in its Scope table whenever it touches something a developer would need to know to run, configure, or understand the project:
+
+| Action | File |
+|--------|------|
+| Update | README.md — add/update the section(s) affected by this task |
+
+Specifically:
+- Foundation task → fill Prerequisites, Quick Start, Environment Variables
+- First runnable backend task → fill Running Locally (API + Docker)
+- First runnable frontend task → fill Running Locally (web dev server)
+- Each feature task → add a one-liner to an Architecture Overview or Features section
+- Any task that adds an Nx command, env var, or migration step → update the relevant README section immediately
+
+**Rule:** Updating `README.md` is part of every task's Definition of Done when that task changes something a developer needs to know. A task that adds a new env var, Docker step, or Nx command without updating the README is not complete. The final task only verifies accuracy — it must never be the task that *writes* the README.
