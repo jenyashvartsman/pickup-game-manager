@@ -34,8 +34,11 @@
   </div>
 
   @if (gamesService.isLoading()) {
-    <div class="games-calendar-page__loading">Loading games…</div>
+    <app-skeleton-card [count]="7" />
   } @else {
+    @if (gamesService.games().length === 0) {
+      <app-empty-state message="No games scheduled this week — click a day to add one." />
+    }
     <app-calendar-week
       [weekStart]="gamesService.selectedWeek()"
       [games]="gamesService.games()"

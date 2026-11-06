@@ -9,6 +9,8 @@ import {
 } from '../../models/player.model';
 import { PlayerHistoryTableComponent } from '../../components/player-history-table/player-history-table.component';
 import { PlayerStatsChartComponent } from '../../components/player-stats-chart/player-stats-chart.component';
+import { EmptyStateComponent } from '../../../../shared/components/empty-state/empty-state.component';
+import { SkeletonCardComponent } from '../../../../shared/components/skeleton-card/skeleton-card.component';
 import { AnimationService } from '../../../../core/services/animation.service';
 import gsap from 'gsap';
 
@@ -23,7 +25,7 @@ const ZERO_TOTALS: PlayerCareerTotals = {
 
 @Component({
   selector: 'app-player-detail-page',
-  imports: [PlayerHistoryTableComponent, PlayerStatsChartComponent],
+  imports: [PlayerHistoryTableComponent, PlayerStatsChartComponent, EmptyStateComponent, SkeletonCardComponent],
   templateUrl: './player-detail-page.component.html',
   styleUrl: './player-detail-page.component.scss',
 })

@@ -80,9 +80,7 @@ describe('PlayersListPageComponent', () => {
     fixture.componentInstance['searchQuery'].set('zzz');
     fixture.detectChanges();
 
-    const state = fixture.nativeElement.querySelector(
-      '.players-list-page__state'
-    );
-    expect(state.textContent.trim()).toBe('No players found.');
+    const emptyState = fixture.nativeElement.querySelector('app-empty-state');
+    expect(emptyState).toBeTruthy();
   });
 });

@@ -2,11 +2,13 @@ import { Component, OnInit, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { GamesService } from '../../services/games.service';
 import { CalendarWeekComponent } from '../../components/calendar-week/calendar-week.component';
+import { EmptyStateComponent } from '../../../../shared/components/empty-state/empty-state.component';
+import { SkeletonCardComponent } from '../../../../shared/components/skeleton-card/skeleton-card.component';
 import { Game } from '../../models/game.model';
 
 @Component({
   selector: 'app-games-calendar-page',
-  imports: [CalendarWeekComponent],
+  imports: [CalendarWeekComponent, EmptyStateComponent, SkeletonCardComponent],
   templateUrl: './games-calendar-page.component.html',
   styleUrl: './games-calendar-page.component.scss',
 })

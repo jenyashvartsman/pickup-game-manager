@@ -6,7 +6,7 @@
 Current: **EXECUTE**
 
 ## Current Task
-Task 016 — Polish: Empty States, Error States & HTTP Interceptor
+Task 017 — Production Readiness & README
 
 ## Factory Phase (execution)
 `INIT` → `SCAFFOLD` → `CORE` → `FEATURES` → `POLISH`
@@ -31,16 +31,16 @@ Task 016 — Polish: Empty States, Error States & HTTP Interceptor
 | 013 | Player Dashboard Page | 2026-11-06 |
 | 014 | Main Dashboard Page | 2026-11-06 |
 | 015 | GSAP Animations & Page Transitions | 2026-11-06 |
+| 016 | Polish: Empty States, Error States & HTTP Interceptor | 2026-11-06 |
 
 ## Pending Tasks
 
 | Task | Title | Phase |
 |------|-------|-------|
-| 016 | Polish: Empty States, Error States & HTTP Interceptor | POLISH |
 | 017 | Production Readiness & README | POLISH |
 
 ## Blockers
 _None_
 
 ## Last Note
-Task 015 complete. GSAP Animations & Page Transitions — gsap@3.15.1 installed; AnimationService (staggerIn/slideWeek/prefersReducedMotion, reduced-motion guard, 9 unit tests); DashboardPageComponent stagger-fades section cards on load; CalendarWeekComponent slides on weekStart change; GamesCalendarPageComponent tracks slideDirection (left/right); PlayerDetailPageComponent counter-animates displayTotals via GSAP tween; template uses displayTotals(); AnimationService mocked in PlayerDetailPage spec; 16 suites 125 tests green, build clean, lint clean.
+Task 016 complete. Empty States, Error States & HTTP Interceptor — ErrorNotificationService + httpErrorInterceptor (withInterceptors, 4xx/5xx/network); EmptyStateComponent + SkeletonCardComponent in shared/components/; ErrorToastComponent in LayoutComponent (fixed toast, role=alert, auto-dismiss 5s); PlayersListPage/GamesCalendarPage/PlayerDetailPage all wired with skeleton loading + empty states; 21 suites 148 tests green, build clean, lint clean.

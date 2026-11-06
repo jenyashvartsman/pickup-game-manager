@@ -2,11 +2,13 @@ import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { PlayersService } from '../../services/players.service';
 import { PlayerCardComponent } from '../../components/player-card/player-card.component';
+import { EmptyStateComponent } from '../../../../shared/components/empty-state/empty-state.component';
+import { SkeletonCardComponent } from '../../../../shared/components/skeleton-card/skeleton-card.component';
 import { Player } from '../../models/player.model';
 
 @Component({
   selector: 'app-players-list-page',
-  imports: [RouterLink, PlayerCardComponent],
+  imports: [RouterLink, PlayerCardComponent, EmptyStateComponent, SkeletonCardComponent],
   templateUrl: './players-list-page.component.html',
   styleUrl: './players-list-page.component.scss',
 })

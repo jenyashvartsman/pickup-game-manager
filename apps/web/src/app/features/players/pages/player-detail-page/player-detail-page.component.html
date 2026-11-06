@@ -10,7 +10,7 @@
   </header>
 
   @if (isLoading()) {
-    <div class="player-detail-page__loading">Loading…</div>
+    <app-skeleton-card [count]="4" />
   } @else if (player()) {
     <section class="player-detail-page__section">
       <h2 class="player-detail-page__section-title">Career Totals</h2>
@@ -42,18 +42,22 @@
       </div>
     </section>
 
-    <section class="player-detail-page__section">
-      <h2 class="player-detail-page__section-title">Goals &amp; Assists Over Time</h2>
-      <div class="player-detail-page__card">
-        <app-player-stats-chart [stats]="stats()" />
-      </div>
-    </section>
+    @if (stats().length > 0) {
+      <section class="player-detail-page__section">
+        <h2 class="player-detail-page__section-title">Goals &amp; Assists Over Time</h2>
+        <div class="player-detail-page__card">
+          <app-player-stats-chart [stats]="stats()" />
+        </div>
+      </section>
 
-    <section class="player-detail-page__section">
-      <h2 class="player-detail-page__section-title">Game History</h2>
-      <div class="player-detail-page__card">
-        <app-player-history-table [stats]="stats()" />
-      </div>
-    </section>
+      <section class="player-detail-page__section">
+        <h2 class="player-detail-page__section-title">Game History</h2>
+        <div class="player-detail-page__card">
+          <app-player-history-table [stats]="stats()" />
+        </div>
+      </section>
+    } @else {
+      <app-empty-state message="No game history yet." />
+    }
   }
 </div>

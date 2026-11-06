@@ -16,9 +16,13 @@
   </div>
 
   @if (playersService.isLoading()) {
-    <p class="players-list-page__state">Loading players…</p>
+    <app-skeleton-card [count]="6" />
   } @else if (filteredPlayers().length === 0) {
-    <p class="players-list-page__state">No players found.</p>
+    @if (searchQuery()) {
+      <app-empty-state message="No players match your search." />
+    } @else {
+      <app-empty-state message="No players yet — add your first player." />
+    }
   } @else {
     <div class="players-list-page__grid">
       @for (player of filteredPlayers(); track player.id) {

@@ -1,0 +1,13 @@
+@if (errorNotification.errorMessage()) {
+  <div class="error-toast" role="alert" aria-live="assertive">
+    <span class="error-toast__message">{{ errorNotification.errorMessage() }}</span>
+    <button
+      class="error-toast__dismiss"
+      type="button"
+      (click)="errorNotification.dismiss()"
+      aria-label="Dismiss error"
+    >
+      &times;
+    </button>
+  </div>
+}

@@ -1,0 +1,24 @@
+@use '../../../../styles/variables' as *;
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-3xl $spacing-xl;
+  gap: $spacing-md;
+
+  &__icon {
+    width: 48px;
+    height: 48px;
+    color: var(--color-text-muted);
+    opacity: 0.5;
+  }
+
+  &__message {
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: $font-size-base;
+    text-align: center;
+  }
+}

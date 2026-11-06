@@ -1,0 +1,9 @@
+<div class="skeleton-card" aria-busy="true" aria-label="Loading…">
+  @for (item of items(); track item) {
+    <div class="skeleton-card__item">
+      <div class="skeleton-card__line skeleton-card__line--title"></div>
+      <div class="skeleton-card__line skeleton-card__line--body"></div>
+      <div class="skeleton-card__line skeleton-card__line--body skeleton-card__line--short"></div>
+    </div>
+  }
+</div>
